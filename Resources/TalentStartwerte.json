@@ -1,0 +1,44 @@
+{
+  "Kampftechniken": {
+    "Raufen": {
+      "Magier": 2,
+      "Scharlatan": 4,
+      "Auelf": 2,
+      "Waldelf": 2,
+      "Firnelf": 3,
+      "Halbelf": 2,
+      "Hexe": 2,
+      "Schelm":3,
+      "Geode": 3,
+      "Druide": 2,
+      "Tänzerin": 2,
+      "Amazone": 3,
+      "Barde": 3,
+      "Gaukler": 2,
+      "Jäger": 1,
+      "Krieger": 4,
+      "Moha": 3,
+      "Medicus": 3
+    },
+    "Boxen": {
+      "Magier": -1,
+      "Scharlatan": 1,
+      "Auelf": 0,
+      "Waldelf": -1,
+      "Firnelf": 0,
+      "Halbelf": 0,
+      "Hexe": -2,
+      "Schelm":2,
+      "Geode": 1,
+      "Druide": -2,
+      "Tänzerin": 0,
+      "Amazone": 3,
+      "Barde": 1,
+      "Gaukler": 2,
+      "Jäger": 1,
+      "Krieger": 4,
+      "Moha": -3,
+      "Medicus": 0
+    },
+  }
+}

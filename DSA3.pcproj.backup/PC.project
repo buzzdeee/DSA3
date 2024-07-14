@@ -1,0 +1,82 @@
+{
+    APPLICATIONICON = "";
+    "APP_DOCUMENT_BASED" = NO;
+    "APP_TYPE" = GORM;
+    "BUILDER_TARGETS" = (
+	all,
+	install,
+	uninstall,
+	clean,
+	distclean,
+	dist
+    );
+    "BUNDLE_IDENTIFIER" = "";
+    "CLASS_FILES" = (
+	"AppController.m"
+    );
+    COMPILEROPTIONS = "";
+    CPPOPTIONS = "";
+    "CREATION_DATE" = "2024-07-12 22:42:06 +0200";
+    "DOCU_FILES" = (
+    );
+    FRAMEWORKS = (
+    );
+    "HEADER_FILES" = (
+	"AppController.h",
+	"DSA3Main.h"
+    );
+    IMAGES = (
+    );
+    INSTALLDIR = "$(HOME)/GNUstep";
+    INTERFACES = (
+	"DSA3.gorm"
+    );
+    LANGUAGE = English;
+    LIBRARIES = (
+	"gnustep-base",
+	"gnustep-gui"
+    );
+    LINKEROPTIONS = "";
+    "LOCALIZED_RESOURCES" = (
+    );
+    MAININTERFACE = "DSA3.gorm";
+    MAKEFILEDIR = "$(GNUSTEP_MAKEFILES)";
+    "OBJC_COMPILEROPTIONS" = "";
+    "OTHER_RESOURCES" = (
+    );
+    "OTHER_SOURCES" = (
+	"DSA3_main.m",
+	"DSA3Main.m"
+    );
+    "PRINCIPAL_CLASS" = NSApplication;
+    "PROJECT_AUTHORS" = (
+    );
+    "PROJECT_COPYRIGHT" = "Copyright (C) 200x";
+    "PROJECT_COPYRIGHT_DESC" = "Released under ...";
+    "PROJECT_CREATOR" = "Sebastian Reitenbach";
+    "PROJECT_DESCRIPTION" = "No description avaliable!";
+    "PROJECT_DOCUMENTTYPES" = (
+    );
+    "PROJECT_GROUP" = "No group avaliable!";
+    "PROJECT_MAINTAINER" = "Sebastian Reitenbach";
+    "PROJECT_NAME" = DSA3;
+    "PROJECT_RELEASE" = "0.1";
+    "PROJECT_SUMMARY" = "No summary avaliable!";
+    "PROJECT_TYPE" = Application;
+    "PROJECT_URL" = "";
+    "SEARCH_HEADER_DIRS" = (
+    );
+    "SEARCH_LIB_DIRS" = (
+    );
+    SUBPROJECTS = (
+    );
+    "SUPPORTING_FILES" = (
+	"GNUmakefile.preamble",
+	GNUmakefile,
+	"GNUmakefile.postamble",
+	"DSA3Info.plist"
+    );
+    "USER_LANGUAGES" = (
+	English
+    );
+}

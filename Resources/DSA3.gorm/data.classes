@@ -1,0 +1,75 @@
+{
+    "## Comment" = "Do NOT change this file, Gorm maintains it";
+    AppController = {
+	Actions = (
+	    "showPrefPanel:"
+	);
+	Outlets = (
+	);
+	Super = NSObject;
+    };
+    CharacterStartwerte = {
+	Actions = (
+	);
+	Outlets = (
+	);
+	Super = NSObject;
+    };
+    CharacterValues = {
+	Actions = (
+	);
+	Outlets = (
+	);
+	Super = NSWindow;
+    };
+    DSA3Main = {
+	Actions = (
+	    "generateCharacter:",
+	    "loadGame:",
+	    "openBestiarium:",
+	    "openCharacterValues:",
+	    "openHerbarium:",
+	    "openSpells:",
+	    "openTrades:",
+	    "openWeapons:",
+	    "startGame:",
+	    "openRegionalDifferences:"
+	);
+	Outlets = (
+	);
+	Super = NSObject;
+    };
+    FirstResponder = {
+	Actions = (
+	    "createCharacter:",
+	    "generateCharacter:",
+	    "loadGame:",
+	    "openRegionalDifferences:",
+	    "openBestiarium:",
+	    "openCharacterValues:",
+	    "openHerbarium:",
+	    "openSpells:",
+	    "openTrades:",
+	    "openWeapons:",
+	    "orderFrontFontPanel:",
+	    "showPrefPanel:",
+	    "startGame:"
+	);
+	Super = NSObject;
+    };
+    MainWindow = {
+	Actions = (
+	    "createCharacter:",
+	    "openTrades:",
+	    "openBestiarium:",
+	    "openCharacterValues:",
+	    "openHerbarium:",
+	    "openSpells:",
+	    "openWeapons:",
+	    "startGame:"
+	);
+	Outlets = (
+	);
+	Super = NSWindow;
+    };
+}
