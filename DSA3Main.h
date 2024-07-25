@@ -4,6 +4,7 @@
 
 @interface DSA3Main : NSObject
 {
+  IBOutlet NSWindow *winCharacterStartwerte;
 }
 - (IBAction) generateCharacter: (id)sender;
 - (IBAction) loadGame: (id)sender;

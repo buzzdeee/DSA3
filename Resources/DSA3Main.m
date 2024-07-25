@@ -21,7 +21,7 @@
 }
 
 
-- (IBAction) openCharacterValues: (id)sender
+- (IBAction) openCharacterStartwerte: (id)sender
 {
 }
 
@@ -47,6 +47,11 @@
 
 
 - (IBAction) startGame: (id)sender
+{
+}
+
+
+- (IBAction) openRegionalDifferences: (id)sender
 {
 }
 

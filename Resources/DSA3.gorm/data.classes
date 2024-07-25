@@ -2,16 +2,80 @@
     "## Comment" = "Do NOT change this file, Gorm maintains it";
     AppController = {
 	Actions = (
-	    "showPrefPanel:"
+	    "showPrefPanel:",
+	    "showCharDefWindow:",
+	    "showCharGenWindow:",
+	    "showCharacterStartwerte:",
+	    "updateCharacterStartwerte:",
+	    "popupCharDefTypusSelected:"
 	);
 	Outlets = (
+	    windowCharacterStartwerte,
+	    popupCharacterChooser,
+	    fieldStartwerteMU,
+	    fieldStartwerteKL,
+	    fieldStartwerteIN,
+	    fieldStartwerteCH,
+	    fieldStartwerteFF,
+	    fieldStartwerteGE,
+	    fieldStartwerteKK,
+	    fieldStartwerteAG,
+	    fieldStartwerteHA,
+	    fieldStartwerteRA,
+	    fieldStartwerteTA,
+	    fieldStartwerteNG,
+	    fieldStartwerteGG,
+	    fieldStartwerteJZ,
+	    windowCharDef,
+	    popupWinCharDefTypus,
+	    popupWinCharDefHerkunft,
+	    popupWinCharDefBeruf,
+	    popupWinCharDefMagierakademie,
+	    buttonCharDefCharGen,
+	    windowCharGen,
+	    fieldCharGenTypus,
+	    fieldCharGenHerkunft,
+	    fieldCharGenBeruf,
+	    fieldCharGenAkademie,
+	    fieldCharGenMU,
+	    fieldCharGenMUC,
+	    fieldCharGenKL,
+	    fieldCharGenKLC,
+	    fieldCharGenIN,
+	    fieldCharGenINC,
+	    fieldCharGenCH,
+	    fieldCharGenCHC,
+	    fieldCharGenFF,
+	    fieldCharGenFFC,
+	    fieldCharGenGE,
+	    fieldCharGenGEC,
+	    fieldCharGenKK,
+	    fieldCharGenKKC,
+	    fieldCharGenAG,
+	    fieldCharGenAGC,
+	    fieldCharGenHA,
+	    fieldCharGenHAC,
+	    fieldCharGenRA,
+	    fieldCharGenRAC,
+	    fieldCharGenTA,
+	    fieldCharGenTAC,
+	    fieldCharGenNG,
+	    fieldCharGenNGC,
+	    fieldCharGenGG,
+	    fieldCharGenGGC,
+	    fieldCharGenJZ,
+	    fieldCharGenJZC,
+	    buttonCharGenGenerieren,
+	    buttonCharGenAuswahl
 	);
 	Super = NSObject;
     };
     CharacterStartwerte = {
 	Actions = (
+	    "selectCharacterType:"
 	);
 	Outlets = (
+	    allCharacterTypes
 	);
 	Super = NSObject;
     };
@@ -32,28 +96,38 @@
 	    "openSpells:",
 	    "openTrades:",
 	    "openWeapons:",
-	    "startGame:",
-	    "openRegionalDifferences:"
+	    "startGame:"
 	);
 	Outlets = (
+	    winCharacterStartwerte
 	);
 	Super = NSObject;
     };
     FirstResponder = {
 	Actions = (
+	    "buttonCharGenGenerieren:",
 	    "createCharacter:",
 	    "generateCharacter:",
 	    "loadGame:",
-	    "openRegionalDifferences:",
+	    "buttonCharGenAuswahl:",
 	    "openBestiarium:",
+	    "openCharacterStartwerte:",
 	    "openCharacterValues:",
 	    "openHerbarium:",
+	    "openRegionalDifferences:",
 	    "openSpells:",
 	    "openTrades:",
 	    "openWeapons:",
 	    "orderFrontFontPanel:",
+	    "popupCharDefTypusSelected:",
+	    "selectCharacterType:",
+	    "showCharDefWindow:",
+	    "showCharGenWindow:",
+	    "showCharacterGeneratorWindow:",
+	    "showCharacterStartwerte:",
 	    "showPrefPanel:",
-	    "startGame:"
+	    "startGame:",
+	    "updateCharacterStartwerte:"
 	);
 	Super = NSObject;
     };

@@ -40,7 +40,8 @@ Resources/DSA3.gorm \
 #
 DSA3_HEADER_FILES = \
 AppController.h \
-DSA3Main.h
+DSA3Main.h \
+CharacterStartwerte.h
 
 #
 # Objective-C Class files
@@ -53,7 +54,8 @@ AppController.m
 #
 DSA3_OBJC_FILES += \
 DSA3_main.m \
-DSA3Main.m 
+DSA3Main.m \
+CharacterStartwerte.m 
 
 #
 # Makefiles

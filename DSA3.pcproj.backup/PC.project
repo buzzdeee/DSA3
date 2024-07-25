@@ -23,7 +23,8 @@
     );
     "HEADER_FILES" = (
 	"AppController.h",
-	"DSA3Main.h"
+	"DSA3Main.h",
+	"CharacterStartwerte.h"
     );
     IMAGES = (
     );
@@ -46,7 +47,8 @@
     );
     "OTHER_SOURCES" = (
 	"DSA3_main.m",
-	"DSA3Main.m"
+	"DSA3Main.m",
+	"CharacterStartwerte.m"
     );
     "PRINCIPAL_CLASS" = NSApplication;
     "PROJECT_AUTHORS" = (

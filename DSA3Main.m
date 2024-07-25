@@ -23,6 +23,8 @@
 
 - (IBAction) openCharacterValues: (id)sender
 {
+  NSLog(@"YAY");
+  [winCharacterStartwerte makeKeyAndOrderFront:self];
 }
 
 
