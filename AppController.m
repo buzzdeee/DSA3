@@ -100,25 +100,15 @@ CharacterStartwerte *characterStartwerte = [[CharacterStartwerte alloc] init];
 {
   [windowCharLoad makeKeyAndOrderFront: self];
 }  
-- (void) showCharDefWindow: (id)sender
-{
-  NSLog(@"showCharDefWindow was called!");
-  CharacterStartwerte *characterStartwerte = [[CharacterStartwerte alloc] init];
-  [popupWinCharDefTypus addItemsWithTitles: [characterStartwerte getCharacterTypesList]];
-  [popupWinCharDefHerkunft addItemsWithTitles: [characterStartwerte getHerkunftList]];
-  [popupWinCharDefBeruf addItemsWithTitles: [characterStartwerte getBerufeList]];
-  [popupWinCharDefMagierakademie addItemsWithTitles: [characterStartwerte getMagierakademienList]];    
-  [popupWinCharDefHerkunft setEnabled: NO];
-  [popupWinCharDefBeruf setEnabled: NO];
-  [popupWinCharDefMagierakademie setEnabled: NO];
-  //[buttonWinCharDefCharGen setEnabled: NO];
-  [windowCharDef makeKeyAndOrderFront: self];
-}  
 
 - (void) popupCharDefTypusSelected: (id)sender
 {
 
   NSLog(@"popupCharDefTypusSelected got called");
+  
+  [aktiverCharakter setTypus: [[popupWinCharDefTypus selectedItem] title]];
+  
+  NSLog(@"aktiverCharakter: %@ %@", [aktiverCharakter typus], aktiverCharakter);
   
   if ([popupWinCharDefTypus indexOfSelectedItem] != 0)
     {
@@ -154,163 +144,31 @@ CharacterStartwerte *characterStartwerte = [[CharacterStartwerte alloc] init];
           
         }
       [buttonCharGenGenerieren setEnabled: YES];
-      
-      [fieldCharGenMU setTextColor: [NSColor blackColor]];
-      [fieldCharGenMU setStringValue: @""];
-      [fieldCharGenKL setTextColor: [NSColor blackColor]];
-      [fieldCharGenKL setStringValue: @""];
-      [fieldCharGenIN setTextColor: [NSColor blackColor]];
-      [fieldCharGenIN setStringValue: @""];
-      [fieldCharGenCH setTextColor: [NSColor blackColor]];
-      [fieldCharGenCH setStringValue: @""];
-      [fieldCharGenFF setTextColor: [NSColor blackColor]];
-      [fieldCharGenFF setStringValue: @""];
-      [fieldCharGenGE setTextColor: [NSColor blackColor]];
-      [fieldCharGenGE setStringValue: @""];
-      [fieldCharGenKK setTextColor: [NSColor blackColor]];
-      [fieldCharGenKK setStringValue: @""];
-      [fieldCharGenAG setTextColor: [NSColor blackColor]];
-      [fieldCharGenAG setStringValue: @""];      
-      [fieldCharGenHA setTextColor: [NSColor blackColor]];
-      [fieldCharGenHA setStringValue: @""];      
-      [fieldCharGenRA setTextColor: [NSColor blackColor]];
-      [fieldCharGenRA setStringValue: @""];      
-      [fieldCharGenTA setTextColor: [NSColor blackColor]];
-      [fieldCharGenTA setStringValue: @""];
-      [fieldCharGenNG setTextColor: [NSColor blackColor]];
-      [fieldCharGenNG setStringValue: @""];
-      [fieldCharGenGG setTextColor: [NSColor blackColor]];
-      [fieldCharGenGG setStringValue: @""];            
-      [fieldCharGenJZ setTextColor: [NSColor blackColor]];
-      [fieldCharGenJZ setStringValue: @""];
-      [fieldCharGenHaarfarbe setStringValue: @""];
-      [fieldCharGenAugenfarbe setStringValue: @""];      
-      [fieldCharGenGroesse setStringValue: @""];            
-      [fieldCharGenGewicht setStringValue: @""];            
-      [fieldCharGenGeburtstag setStringValue: @""];            
-      [fieldCharGenGottheit setStringValue: @""];            
-      [fieldCharGenSterne setStringValue: @""];                              
-      [fieldCharGenStand setStringValue: @""];                              
-      [fieldCharGenEltern setStringValue: @""];                                    
-            
-      NSLog(@"selectedItem: %@", [[popupWinCharDefTypus selectedItem] title]);
 
-      NSLog(@"charConstraints: %@", charConstraints);
-      NSDictionary *eigenschaftenDict = [NSDictionary dictionaryWithDictionary: [charConstraints objectForKey: @"Eigenschaften"]];
-  
-      if ([eigenschaftenDict objectForKey: @"MU"] == nil)
+      
+      for (NSString *field in [NSArray arrayWithObjects: @"MU", @"KL", @"IN", @"CH", @"FF", @"GE", @"KK", 
+                                                        @"AG", @"HA", @"RA", @"TA", @"NG", @"GG", @"JZ", 
+                                                        @"Haarfarbe", @"Augenfarbe", @"Groesse", @"Gewicht",
+                                                        @"Geburtstag", @"Gottheit", @"Sterne", @"Stand", @"Eltern", nil ])
         {
-          [fieldCharGenMUC setStringValue: @""];
-        }
-      else
+          [[self valueForKey: [NSString stringWithFormat: @"fieldCharGen%@", field]] setBackgroundColor: [NSColor whiteColor]];
+          [[self valueForKey: [NSString stringWithFormat: @"fieldCharGen%@", field]] setStringValue: @""];
+        }      
+        
+      NSDictionary *eigenschaftenDict = [NSDictionary dictionaryWithDictionary: [charConstraints objectForKey: @"Eigenschaften"]];      
+      for (NSString *field in [NSArray arrayWithObjects: @"MU", @"KL", @"IN", @"CH", @"FF", @"GE", @"KK", 
+                                                        @"AG", @"HA", @"RA", @"TA", @"NG", @"GG", @"JZ", nil ])
         {
-          [fieldCharGenMUC setStringValue: [eigenschaftenDict objectForKey: @"MU"]];
-        }
-      if ([eigenschaftenDict objectForKey: @"KL"] == nil)
-        {
-          [fieldCharGenKLC setStringValue: @""];
-        }
-      else
-        {
-          [fieldCharGenKLC setStringValue: [eigenschaftenDict objectForKey: @"KL"]];
-        }
-      if ([eigenschaftenDict objectForKey: @"IN"] == nil)
-        {
-          [fieldCharGenINC setStringValue: @""];
-        }
-      else
-        {
-          [fieldCharGenINC setStringValue: [eigenschaftenDict objectForKey: @"IN"]];
-        }
-      if ([eigenschaftenDict objectForKey: @"CH"] == nil)
-        {
-          [fieldCharGenCHC setStringValue: @""];
-        }
-      else
-        {
-          [fieldCharGenCHC setStringValue: [eigenschaftenDict objectForKey: @"CH"]];
-        }
-      if ([eigenschaftenDict objectForKey: @"FF"] == nil)
-        {
-          [fieldCharGenFFC setStringValue: @""];
-        }
-      else
-        {
-          [fieldCharGenFFC setStringValue: [eigenschaftenDict objectForKey: @"FF"]];
-        }
-      if ([eigenschaftenDict objectForKey: @"GE"] == nil)
-        {
-          [fieldCharGenGEC setStringValue: @""];
-        }
-      else
-        {
-          [fieldCharGenGEC setStringValue: [eigenschaftenDict objectForKey: @"GE"]];
-        }
-      if ([eigenschaftenDict objectForKey: @"KK"] == nil)
-        {
-          [fieldCharGenKKC setStringValue: @""];
-        }
-      else
-        {
-          [fieldCharGenKKC setStringValue: [eigenschaftenDict objectForKey: @"KK"]];
-        }
-      if ([eigenschaftenDict objectForKey: @"AG"] == nil)
-        {
-          [fieldCharGenAGC setStringValue: @""];
-        }
-      else
-        {
-          [fieldCharGenAGC setStringValue: [eigenschaftenDict objectForKey: @"AG"]];
-        }
-      if ([eigenschaftenDict objectForKey: @"HA"] == nil)
-        {
-          [fieldCharGenHAC setStringValue: @""];
-        }
-      else
-        {
-           [fieldCharGenHAC setStringValue: [eigenschaftenDict objectForKey: @"HA"]];
-        }
-      if ([eigenschaftenDict objectForKey: @"RA"] == nil)
-        {
-           [fieldCharGenRAC setStringValue: @""];
-        }
-      else
-        {
-           [fieldCharGenRAC setStringValue: [eigenschaftenDict objectForKey: @"RA"]];
-        }
-      if ([eigenschaftenDict objectForKey: @"TA"] == nil)
-        {
-           [fieldCharGenTAC setStringValue: @""];
-        }
-      else
-        {
-           [fieldCharGenTAC setStringValue: [eigenschaftenDict objectForKey: @"TA"]];
-        }
-      if ([eigenschaftenDict objectForKey: @"NG"] == nil)
-        {
-           [fieldCharGenNGC setStringValue: @""];
-        }
-      else
-        {
-           [fieldCharGenNGC setStringValue: [eigenschaftenDict objectForKey: @"NG"]];
-        }
-      if ([eigenschaftenDict objectForKey: @"GG"] == nil)
-        {
-          [fieldCharGenGGC setStringValue: @""];
-        }
-      else
-        {
-          [fieldCharGenGGC setStringValue: [eigenschaftenDict objectForKey: @"GG"]];
-        }
-    
-      if ([eigenschaftenDict objectForKey: @"JZ"] == nil)
-        {
-          [fieldCharGenJZC setStringValue: @""];
-        }
-      else
-        {
-          [fieldCharGenJZC setStringValue: [eigenschaftenDict objectForKey: @"JZ"]];
-        }
+          
+          if ([eigenschaftenDict objectForKey: field] == nil)
+            {
+              [[self valueForKey: [NSString stringWithFormat: @"fieldCharGen%@C", field]] setStringValue: @""];
+            }
+          else
+            {
+              [[self valueForKey: [NSString stringWithFormat: @"fieldCharGen%@C", field]] setStringValue: [eigenschaftenDict objectForKey: field]];              
+            }
+        }       
     }
   else
     {
@@ -320,10 +178,39 @@ CharacterStartwerte *characterStartwerte = [[CharacterStartwerte alloc] init];
     }  
 }
 
-- (void) showCharGenWindow: (id)sender
+- (void) popupCharDefHerkunftSelected: (id)sender
+{
+
+  NSLog(@"popupCharDefHerkunftSelected got called");
+  
+  [aktiverCharakter setHerkunft: [[popupWinCharDefHerkunft selectedItem] title]];
+  
+}
+
+- (void) popupCharDefBerufSelected: (id)sender
+{
+
+  NSLog(@"popupCharDefBerufSelected got called");
+  
+  [aktiverCharakter setBerufe: [NSArray arrayWithObjects: [[popupWinCharDefBeruf selectedItem] title], nil]];
+  
+}
+
+- (void) popupCharDefMagierakademieSelected: (id)sender
+{
+
+  NSLog(@"popupCharDefMagierakademieSelected got called");
+  
+  [aktiverCharakter setMagierakademie: [[popupWinCharDefMagierakademie selectedItem] title]];
+  
+}
+
+- (IBAction) showCharGenWindow: (id)sender
 {
   NSLog(@"showCharGenWindow was called!");
-    
+  
+  NSLog(@"Charakter: %@", [aktiverCharakter typus]);
+  
   [popupWinCharDefTypus addItemsWithTitles: [[utils typusDict] allKeys]];
   [popupWinCharDefHerkunft addItemsWithTitles: [[utils herkunftDict] allKeys]];
   [popupWinCharDefBeruf addItemsWithTitles: [[utils berufeDict] allKeys]];
@@ -340,6 +227,16 @@ CharacterStartwerte *characterStartwerte = [[CharacterStartwerte alloc] init];
 
   [windowCharGen makeKeyAndOrderFront: self];
 } 
+
+- (void) showTalenteWindow: (id)sender
+{
+  NSLog(@"aktiverCharakter: %@", aktiverCharakter);
+  NSLog(@"typus: %@", [aktiverCharakter typus]);
+  NSLog(@"herkunft: %@", [aktiverCharakter herkunft]);
+  NSLog(@"berufe: %@", [aktiverCharakter berufe]);
+  NSLog(@"magierakademie: %@", [aktiverCharakter magierakademie]);      
+  [windowTalente makeKeyAndOrderFront: self];
+}
 
 - (IBAction) charGenTextFieldUpdated: (id)sender
 {

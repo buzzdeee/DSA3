@@ -28,25 +28,26 @@
 #import <Foundation/Foundation.h>
 
 @interface Charakter : NSObject <NSCoding>
-@property NSString *name;
-@property NSString *titel;
-@property NSString *typus;
-@property NSString *herkunft;
-@property NSArray *berufe;
-@property NSString *geschlecht;
-@property NSString *haarfarbe;
-@property NSString *augenfarbe;
-@property NSString *groesse;
-@property NSString *gewicht;
-@property NSDictionary *geburtstag;
-@property NSDictionary *gottheit;
-@property NSString *sterne;
-@property NSString *eltern;
-@property NSInteger le;
-@property NSInteger ae;
-@property NSInteger ke;
-@property NSDictionary *positiveEigenschaften;
-@property NSDictionary *negativeEigenschaften;
+@property (nonatomic) NSString *name;
+@property (nonatomic) NSString *titel;
+@property (nonatomic) NSString *typus;
+@property (nonatomic) NSString *herkunft;
+@property (nonatomic) NSArray *berufe;
+@property (nonatomic) NSString *magierakademie;
+@property (nonatomic) NSString *geschlecht;
+@property (nonatomic) NSString *haarfarbe;
+@property (nonatomic) NSString *augenfarbe;
+@property (nonatomic) NSString *groesse;
+@property (nonatomic) NSString *gewicht;
+@property (nonatomic) NSDictionary *geburtstag;
+@property (nonatomic) NSDictionary *gottheit;
+@property (nonatomic) NSString *sterne;
+@property (nonatomic) NSString *eltern;
+@property (nonatomic) NSInteger le;
+@property (nonatomic) NSInteger ae;
+@property (nonatomic) NSInteger ke;
+@property (nonatomic) NSDictionary *positiveEigenschaften;
+@property (nonatomic) NSDictionary *negativeEigenschaften;
 
 
 @end

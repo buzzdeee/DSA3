@@ -13,7 +13,11 @@
 	    "buttonCharGenPosEigenschaften:",
 	    "buttonCharGenNegEigenschaften:",
 	    "generiereBasiswerte:",
-	    "charGenTextFieldUpdated:"
+	    "charGenTextFieldUpdated:",
+	    "showTalenteWindow:",
+	    "popupCharDefHerkunftSelected:",
+	    "popupCharDefBerufSelected:",
+	    "popupCharDefMagierakademieSelected:"
 	);
 	Outlets = (
 	    windowCharacterStartwerte,
@@ -97,7 +101,26 @@
 	    buttonCharGenGG,
 	    buttonCharGenJZ,
 	    windowCharLoad,
-	    popupCharLoadAuswahl
+	    popupCharLoadAuswahl,
+	    buttonTalenteWeiter,
+	    fieldTalenteCH,
+	    fieldTalenteFF,
+	    fieldTalenteGE,
+	    fieldTalenteIN,
+	    "fieldTalenteItem1_Item1Text",
+	    "fieldTalenteItem1_Item2Text",
+	    "fieldTalenteItem1_Item3Text",
+	    "fieldTalenteItem1_Item4Text",
+	    fieldTalenteItem2Text,
+	    fieldTalenteItem3Text,
+	    fieldTalenteItem4Text,
+	    fieldTalenteItem5Text,
+	    fieldTalenteItem6Text,
+	    fieldTalenteItem7Text,
+	    fieldTalenteKK,
+	    fieldTalenteKL,
+	    fieldTalenteMU,
+	    windowTalente
 	);
 	Super = NSObject;
     };
@@ -140,11 +163,14 @@
 	    "buttonCharGenGenerieren:",
 	    "buttonCharGenNegEigenschaften:",
 	    "buttonCharGenPosEigenschaften:",
+	    "charGenTextFieldUpdated:",
 	    "createCharacter:",
 	    "generateCharacter:",
 	    "generiereBasiswerte:",
 	    "loadGame:",
-	    "charGenTextFieldUpdated:",
+	    "popupCharDefHerkunftSelected:",
+	    "popupCharDefBerufSelected:",
+	    "popupCharDefMagierakademieSelected:",
 	    "openBestiarium:",
 	    "openCharacterStartwerte:",
 	    "openCharacterValues:",
@@ -163,6 +189,7 @@
 	    "showCharacterStartwerte:",
 	    "showCharacterWindow:",
 	    "showPrefPanel:",
+	    "showTalenteWindow:",
 	    "startGame:",
 	    "updateCharacterStartwerte:"
 	);

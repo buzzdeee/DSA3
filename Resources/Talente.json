@@ -1,6 +1,7 @@
 {
   "Kampftechniken": {
     "Raufen": {
+      "Subtyp": "Waffenlose Kampftechniken",
       "Startwerte": {
         "Magier": 2,
         "Scharlatan": 4,
@@ -46,6 +47,7 @@
       }
     },
     "Boxen": {
+      "Waffentyp": "Waffenlose Kampftechniken",
       "Startwerte": {
         "Magier": -1,
         "Scharlatan": 1,
@@ -91,6 +93,7 @@
       }
     },
     "Hruruzat": {
+      "Waffentyp": "Waffenlose Kampftechniken",
       "Startwerte": {
         "Magier": -6,
         "Scharlatan": -5,
@@ -136,6 +139,7 @@
       }
     },
     "Ringen": {
+      "Waffentyp": "Waffenlose Kampftechniken",
       "Startwerte": {
         "Magier": 0,
         "Scharlatan": 1,
@@ -181,6 +185,7 @@
       }
     },
     "Äxte und Beile": {
+      "Waffentyp": "Bewaffnete Kampftechniken",
       "Startwerte": {
         "Magier": -5,
         "Scharlatan": -3,
@@ -226,6 +231,7 @@
       }
     },
     "Dolche": {
+      "Waffentyp": "Bewaffnete Kampftechniken",
       "Startwerte": {
         "Magier": 2,
         "Scharlatan": 4,
@@ -271,6 +277,7 @@
       }
     },
     "Infanteriewaffen": {
+      "Waffentyp": "Bewaffnete Kampftechniken",
       "Startwerte": {
         "Magier": -5,
         "Scharlatan": -5,
@@ -316,6 +323,7 @@
       }
     },
     "Linkshändig": {
+      "Waffentyp": "Besondere Kampftechniken",
       "Startwerte": {
         "Magier": 0,
         "Scharlatan": 0,
@@ -361,6 +369,7 @@
       }
     },
     "Kettenwaffen": {
+      "Waffentyp": "Bewaffnete Kampftechniken",
       "Startwerte": {
         "Magier": -5,
         "Scharlatan": -5,
@@ -406,6 +415,7 @@
       }
     },
     "Peitsche": {
+      "Waffentyp": "Bewaffnete Kampftechniken",
       "Startwerte": {
         "Magier": 0,
         "Scharlatan": 2,
@@ -451,6 +461,7 @@
       }
     },
     "Scharfe Hiebwaffen": {
+      "Waffentyp": "Bewaffnete Kampftechniken",
       "Startwerte": {
         "Magier": -4,
         "Scharlatan": -2,
@@ -496,6 +507,7 @@
       }
     },
     "Schwerter": {
+      "Waffentyp": "Bewaffnete Kampftechniken",
       "Startwerte": {
         "Magier": -4,
         "Scharlatan": -4,
@@ -541,6 +553,7 @@
       }
     },
     "Speere und Stäbe": {
+      "Waffentyp": "Bewaffnete Kampftechniken",
       "Startwerte": {
         "Magier": 3,
         "Scharlatan": 2,
@@ -586,6 +599,7 @@
       }
     },
     "Stichwaffen": {
+      "Waffentyp": "Bewaffnete Kampftechniken",
       "Startwerte": {
         "Magier": 1,
         "Scharlatan": 3,
@@ -631,6 +645,7 @@
       }
     },
     "Stumpfe Hiebwaffen": {
+      "Waffentyp": "Bewaffnete Kampftechniken",
       "Startwerte": {
         "Magier": 0,
         "Scharlatan": 1,
@@ -676,6 +691,7 @@
       }
     },
     "Zweihänder": {
+      "Waffentyp": "Bewaffnete Kampftechniken",
       "Startwerte": {
         "Magier": -5,
         "Scharlatan": -5,
@@ -721,6 +737,7 @@
       }
     },
     "Lanzenreiten": {
+      "Waffentyp": "Besondere Kampftechniken",
       "Startwerte": {
         "Magier": -6,
         "Scharlatan": -6,
@@ -766,6 +783,7 @@
       }
     },
     "Schußwaffen": {
+      "Waffentyp": "Fernkampftechniken",
       "Startwerte": {
         "Magier": -2,
         "Scharlatan": 0,
@@ -811,6 +829,7 @@
       }
     },
     "Wurfwaffen": {
+      "Waffentyp": "Fernkampftechniken",
       "Startwerte": {
         "Magier": 0,
         "Scharlatan": 2,
@@ -856,6 +875,7 @@
       }
     },
     "Schleuder": {
+      "Waffentyp": "Fernkampftechniken",
       "Startwerte": {
         "Magier":-2,
         "Scharlatan": 1,

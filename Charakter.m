@@ -35,6 +35,7 @@
 @synthesize typus;
 @synthesize herkunft;
 @synthesize berufe;
+@synthesize magierakademie;
 @synthesize geschlecht;
 @synthesize haarfarbe;
 @synthesize augenfarbe;
@@ -49,6 +50,146 @@
 @synthesize ke;
 @synthesize positiveEigenschaften;
 @synthesize negativeEigenschaften;
+
+- (void) setName: (NSString *)inName
+{
+  [self willChangeValueForKey: @"name"];
+  name = inName;
+  [self didChangeValueForKey: @"name"];
+}
+
+- (void) setTitel: (NSString *)inTitel
+{
+  [self willChangeValueForKey: @"titel"];
+  titel = inTitel;
+  [self didChangeValueForKey: @"titel"];
+}
+
+- (void) setTypus: (NSString *)inTypus
+{
+  [self willChangeValueForKey: @"typus"];
+  typus = inTypus;
+  [self didChangeValueForKey: @"typus"];
+}
+
+- (void) setHerkunft: (NSString *)inHerkunft
+{
+  [self willChangeValueForKey: @"herkunft"];
+  herkunft = inHerkunft;
+  [self didChangeValueForKey: @"herkunft"];
+}
+
+- (void) setBerufe: (NSArray *)inBerufe
+{
+  [self willChangeValueForKey: @"berufe"];
+  berufe = inBerufe;
+  [self didChangeValueForKey: @"berufe"];
+}
+
+- (void) setMagierakademie: (NSString *)inMagierakademie
+{
+  [self willChangeValueForKey: @"magierakademie"];
+  magierakademie = inMagierakademie;
+  [self didChangeValueForKey: @"magierakademie"];
+}
+
+- (void) setGeschlecht: (NSString *)inGeschlecht
+{
+  [self willChangeValueForKey: @"geschlecht"];
+  geschlecht = inGeschlecht;
+  [self didChangeValueForKey: @"geschlecht"];
+}
+
+- (void) setHaarfarbe: (NSString *)inHaarfarbe
+{
+  [self willChangeValueForKey: @"haarfarbe"];
+  haarfarbe = inHaarfarbe;
+  [self didChangeValueForKey: @"haarfarbe"];
+}
+
+- (void) setAugenfarbe: (NSString *)inAugenfarbe
+{
+  [self willChangeValueForKey: @"augenfarbe"];
+  augenfarbe = inAugenfarbe;
+  [self didChangeValueForKey: @"augenfarbe"];
+}
+
+- (void) setGroesse: (NSString *)inGroesse
+{
+  [self willChangeValueForKey: @"groesse"];
+  groesse = inGroesse;
+  [self didChangeValueForKey: @"groesse"];
+}
+
+- (void) setGewicht: (NSString *)inGewicht
+{
+  [self willChangeValueForKey: @"gewicht"];
+  gewicht = inGewicht;
+  [self didChangeValueForKey: @"gewicht"];
+}
+
+- (void) setGeburtstag: (NSDictionary *)inGeburtstag
+{
+  [self willChangeValueForKey: @"geburtstag"];
+  geburtstag = inGeburtstag;
+  [self didChangeValueForKey: @"geburtstag"];
+}
+
+- (void) setGottheit: (NSDictionary *)inGottheit
+{
+  [self willChangeValueForKey: @"gottheit"];
+  gottheit = inGottheit;
+  [self didChangeValueForKey: @"gottheit"];
+}
+
+- (void) setSterne: (NSString *)inSterne
+{
+  [self willChangeValueForKey: @"sterne"];
+  sterne = inSterne;
+  [self didChangeValueForKey: @"sterne"];
+}
+
+- (void) setEltern: (NSString *)inEltern
+{
+  [self willChangeValueForKey: @"eltern"];
+  eltern = inEltern;
+  [self didChangeValueForKey: @"eltern"];
+}
+
+- (void) setLe: (NSInteger)inLe
+{
+  [self willChangeValueForKey: @"le"];
+  le = inLe;
+  [self didChangeValueForKey: @"le"];
+}
+
+- (void) setAe: (NSInteger)inAe
+{
+  [self willChangeValueForKey: @"ae"];
+  ae = inAe;
+  [self didChangeValueForKey: @"ae"];
+}
+
+- (void) setKe: (NSInteger)inKe
+{
+  [self willChangeValueForKey: @"ke"];
+  ke = inKe;
+  [self didChangeValueForKey: @"ke"];
+}
+
+- (void) setPositiveEigenschaften: (NSDictionary *)inPositiveEigenschaften
+{
+  [self willChangeValueForKey: @"positiveEigenschaften"];
+  positiveEigenschaften = inPositiveEigenschaften;
+  [self didChangeValueForKey: @"positiveEigenschaften"];
+}
+
+- (void) setNegativeEigenschaften: (NSDictionary *)inNegativeEigenschaften
+{
+  [self willChangeValueForKey: @"negativeEigenschaften"];
+  negativeEigenschaften = inNegativeEigenschaften;
+  [self didChangeValueForKey: @"negativeEigenschaften"];
+}
 
 - (id)initWithCoder:(NSCoder *)decoder
 {

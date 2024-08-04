@@ -112,6 +112,16 @@
                                      
   IBOutlet NSWindow      *windowCharLoad;
   IBOutlet NSPopUpButton *popupCharLoadAuswahl; 
+  
+  IBOutlet NSWindow      *windowTalente;
+  IBOutlet NSTextField   *fieldTalenteMU;
+  IBOutlet NSTextField   *fieldTalenteKL;
+  IBOutlet NSTextField   *fieldTalenteIN;
+  IBOutlet NSTextField   *fieldTalenteCH;
+  IBOutlet NSTextField   *fieldTalenteFF;
+  IBOutlet NSTextField   *fieldTalenteGE;
+  IBOutlet NSTextField   *fieldTalenteKK;            
+  
 }
 
 + (void)  initialize;
@@ -128,8 +138,9 @@
 	    openFile: (NSString *)fileName;
 
 - (void) showPrefPanel: (id)sender;
-- (void) showCharDefWindow: (id)sender;
-- (void) showCharGenWindow: (id)sender;
+//- (void) showCharDefWindow: (id)sender;
+- (IBAction) showCharGenWindow: (id)sender;
+- (IBAction) showTalenteWindow: (id)sender;
 - (IBAction) showCharLoadWindow: (id)sender;
 - (void) showCharacterStartwerte: (id)sender;
 - (void) updateCharacterStartwerte: (id)sender;
