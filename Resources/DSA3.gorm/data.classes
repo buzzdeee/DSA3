@@ -5,9 +5,15 @@
 	    "showPrefPanel:",
 	    "showCharDefWindow:",
 	    "showCharGenWindow:",
+	    "showCharLoadWindow:",
 	    "showCharacterStartwerte:",
 	    "updateCharacterStartwerte:",
-	    "popupCharDefTypusSelected:"
+	    "popupCharDefTypusSelected:",
+	    "showCharacterWindow:",
+	    "buttonCharGenPosEigenschaften:",
+	    "buttonCharGenNegEigenschaften:",
+	    "generiereBasiswerte:",
+	    "charGenTextFieldUpdated:"
 	);
 	Outlets = (
 	    windowCharacterStartwerte,
@@ -33,10 +39,6 @@
 	    popupWinCharDefMagierakademie,
 	    buttonCharDefCharGen,
 	    windowCharGen,
-	    fieldCharGenTypus,
-	    fieldCharGenHerkunft,
-	    fieldCharGenBeruf,
-	    fieldCharGenAkademie,
 	    fieldCharGenMU,
 	    fieldCharGenMUC,
 	    fieldCharGenKL,
@@ -66,7 +68,36 @@
 	    fieldCharGenJZ,
 	    fieldCharGenJZC,
 	    buttonCharGenGenerieren,
-	    buttonCharGenAuswahl
+	    buttonCharGenAuswahl,
+	    fieldCharGenName,
+	    fieldCharGenTitel,
+	    fieldCharGenHaarfarbe,
+	    fieldCharGenAugenfarbe,
+	    fieldCharGenGeburtstag,
+	    fieldCharGenGottheit,
+	    fieldCharGenSterne,
+	    fieldCharGenGroesse,
+	    fieldCharGenGewicht,
+	    fieldCharGenStand,
+	    fieldCharGenEltern,
+	    fieldCharGenGeld,
+	    popupCharGenGeschlecht,
+	    buttonCharGenMU,
+	    buttonCharGenKL,
+	    buttonCharGenIN,
+	    buttonCharGenCH,
+	    buttonCharGenFF,
+	    buttonCharGenGE,
+	    buttonCharGenKK,
+	    buttonCharGenAG,
+	    buttonCharGenHA,
+	    buttonCharGenRA,
+	    buttonCharGenTA,
+	    buttonCharGenNG,
+	    buttonCharGenGG,
+	    buttonCharGenJZ,
+	    windowCharLoad,
+	    popupCharLoadAuswahl
 	);
 	Super = NSObject;
     };
@@ -105,11 +136,15 @@
     };
     FirstResponder = {
 	Actions = (
+	    "buttonCharGenAuswahl:",
 	    "buttonCharGenGenerieren:",
+	    "buttonCharGenNegEigenschaften:",
+	    "buttonCharGenPosEigenschaften:",
 	    "createCharacter:",
 	    "generateCharacter:",
+	    "generiereBasiswerte:",
 	    "loadGame:",
-	    "buttonCharGenAuswahl:",
+	    "charGenTextFieldUpdated:",
 	    "openBestiarium:",
 	    "openCharacterStartwerte:",
 	    "openCharacterValues:",
@@ -123,8 +158,10 @@
 	    "selectCharacterType:",
 	    "showCharDefWindow:",
 	    "showCharGenWindow:",
+	    "showCharLoadWindow:",
 	    "showCharacterGeneratorWindow:",
 	    "showCharacterStartwerte:",
+	    "showCharacterWindow:",
 	    "showPrefPanel:",
 	    "startGame:",
 	    "updateCharacterStartwerte:"
@@ -145,5 +182,12 @@
 	Outlets = (
 	);
 	Super = NSWindow;
+    };
+    Utils = {
+	Actions = (
+	);
+	Outlets = (
+	);
+	Super = NSObject;
     };
 }

@@ -10,9 +10,12 @@
 	distclean,
 	dist
     );
+    "BUILDER_VERBOSE" = YES;
     "BUNDLE_IDENTIFIER" = "";
     "CLASS_FILES" = (
-	"AppController.m"
+	"AppController.m",
+	"Utils.m",
+	"Charakter.m"
     );
     COMPILEROPTIONS = "";
     CPPOPTIONS = "";
@@ -24,11 +27,14 @@
     "HEADER_FILES" = (
 	"AppController.h",
 	"DSA3Main.h",
-	"CharacterStartwerte.h"
+	"CharacterStartwerte.h",
+	"Utils.h",
+	"Charakter.h"
     );
     IMAGES = (
     );
     INSTALLDIR = "$(HOME)/GNUstep";
+    INSTALLDOMAIN = System;
     INTERFACES = (
 	"DSA3.gorm"
     );
@@ -37,12 +43,12 @@
 	"gnustep-base",
 	"gnustep-gui"
     );
-    LINKEROPTIONS = "";
+    LINKEROPTIONS = "-ldispatch";
     "LOCALIZED_RESOURCES" = (
     );
     MAININTERFACE = "DSA3.gorm";
     MAKEFILEDIR = "$(GNUSTEP_MAKEFILES)";
-    "OBJC_COMPILEROPTIONS" = "";
+    "OBJC_COMPILEROPTIONS" = "-fobjc-arc";
     "OTHER_RESOURCES" = (
     );
     "OTHER_SOURCES" = (

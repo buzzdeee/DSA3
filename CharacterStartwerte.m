@@ -57,7 +57,7 @@ static CharacterStartwerte *singleton;
 
 - (void) dealloc
 {
-  [super dealloc];
+
 }
 
 - (NSArray *) getCharacterTypesList

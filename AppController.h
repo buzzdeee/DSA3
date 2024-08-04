@@ -15,8 +15,16 @@
 // Uncomment if your application is Renaissance-based
 //#import <Renaissance/Renaissance.h>
 
+@class Utils;
+@class Charakter;
+
 @interface AppController : NSObject
 {
+  Utils *utils;
+  Charakter *aktiverCharakter;
+  NSMutableDictionary *charGenStateDict;
+  NSInteger enableButtonCharGenAuswahl;
+  
   IBOutlet NSWindow *windowCharacterStartwerte;
   IBOutlet NSPopUpButton *popupCharacterChooser;
   IBOutlet NSFormCell *fieldStartwerteMU;
@@ -34,6 +42,7 @@
   IBOutlet NSFormCell *fieldStartwerteGG;
   IBOutlet NSFormCell *fieldStartwerteJZ;
   
+  /* Carakter definieren */
   IBOutlet NSWindow      *windowCharDef;
   IBOutlet NSPopUpButton *popupWinCharDefTypus;
   IBOutlet NSPopUpButton *popupWinCharDefHerkunft;
@@ -41,11 +50,8 @@
   IBOutlet NSPopUpButton *popupWinCharDefMagierakademie;
   IBOutlet NSButton      *buttonCharDefCharGen;
   
+  /* Charakter generieren */
   IBOutlet NSWindow      *windowCharGen;
-  IBOutlet NSTextField   *fieldCharGenTypus;
-  IBOutlet NSTextField   *fieldCharGenHerkunft;
-  IBOutlet NSTextField   *fieldCharGenBeruf;
-  IBOutlet NSTextField   *fieldCharGenAkademie;
   IBOutlet NSTextField   *fieldCharGenMU;
   IBOutlet NSTextField   *fieldCharGenMUC;
   IBOutlet NSTextField   *fieldCharGenKL;
@@ -76,7 +82,36 @@
   IBOutlet NSTextField   *fieldCharGenJZC;
   IBOutlet NSButton      *buttonCharGenGenerieren;
   IBOutlet NSButton      *buttonCharGenAuswahl;
-  
+  IBOutlet NSTextField   *fieldCharGenName;
+  IBOutlet NSTextField   *fieldCharGenTitel;  
+  IBOutlet NSTextField   *fieldCharGenHaarfarbe;
+  IBOutlet NSTextField   *fieldCharGenAugenfarbe;    
+  IBOutlet NSTextField   *fieldCharGenGeburtstag;
+  IBOutlet NSTextField   *fieldCharGenGottheit;
+  IBOutlet NSTextField   *fieldCharGenSterne;
+  IBOutlet NSTextField   *fieldCharGenGroesse;
+  IBOutlet NSTextField   *fieldCharGenGewicht;
+  IBOutlet NSTextField   *fieldCharGenStand;
+  IBOutlet NSTextField   *fieldCharGenEltern;
+  IBOutlet NSTextField   *fieldCharGenGeld;
+  IBOutlet NSPopUpButton *popupCharGenGeschlecht; 
+  IBOutlet NSButton      *buttonCharGenMU;         
+  IBOutlet NSButton      *buttonCharGenKL;         
+  IBOutlet NSButton      *buttonCharGenIN;         
+  IBOutlet NSButton      *buttonCharGenCH;         
+  IBOutlet NSButton      *buttonCharGenFF;         
+  IBOutlet NSButton      *buttonCharGenGE;         
+  IBOutlet NSButton      *buttonCharGenKK;         
+  IBOutlet NSButton      *buttonCharGenAG;         
+  IBOutlet NSButton      *buttonCharGenHA;         
+  IBOutlet NSButton      *buttonCharGenRA;         
+  IBOutlet NSButton      *buttonCharGenTA;         
+  IBOutlet NSButton      *buttonCharGenNG;         
+  IBOutlet NSButton      *buttonCharGenGG;         
+  IBOutlet NSButton      *buttonCharGenJZ;
+                                     
+  IBOutlet NSWindow      *windowCharLoad;
+  IBOutlet NSPopUpButton *popupCharLoadAuswahl; 
 }
 
 + (void)  initialize;
@@ -95,11 +130,19 @@
 - (void) showPrefPanel: (id)sender;
 - (void) showCharDefWindow: (id)sender;
 - (void) showCharGenWindow: (id)sender;
+- (IBAction) showCharLoadWindow: (id)sender;
 - (void) showCharacterStartwerte: (id)sender;
 - (void) updateCharacterStartwerte: (id)sender;
 
 - (void) popupCharDefTypusSelected: (id)sender;
+- (void) farbeFuerEigenschaftsfeldSetzen: (NSString *) feldName;
+- (void) testButtonCharGenAuswahlEnable;
 
+- (IBAction) charGenTextFieldUpdated: (id)sender;
+- (IBAction) showCharacterWindow: (id)sender;
+
+- (IBAction) buttonCharGenPosEigenschaften: (id)sender;
+- (IBAction) buttonCharGenNegEigenschaften: (id)sender;
 @end
 
 #endif

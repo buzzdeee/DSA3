@@ -26,6 +26,7 @@ VERSION = 0.1
 PACKAGE_NAME = DSA3
 APP_NAME = DSA3
 DSA3_APPLICATION_ICON = 
+GNUSTEP_INSTALLATION_DOMAIN = SYSTEM
 
 
 #
@@ -41,13 +42,17 @@ Resources/DSA3.gorm \
 DSA3_HEADER_FILES = \
 AppController.h \
 DSA3Main.h \
-CharacterStartwerte.h
+CharacterStartwerte.h \
+Utils.h \
+Charakter.h
 
 #
 # Objective-C Class files
 #
 DSA3_OBJC_FILES = \
-AppController.m
+AppController.m \
+Utils.m \
+Charakter.m
 
 #
 # Other sources
