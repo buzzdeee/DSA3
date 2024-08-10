@@ -182,7 +182,6 @@
       "Staatskunst": -2
     },
     "Handwerk": {
-      "Bergbau": -1,
       "Fahrzeug Lenken": -2,
       "Falschspiel": -2,
       "Heilkunde Gift": 1,
@@ -255,7 +254,6 @@
       "Staatskunst": -1
     },
     "Handwerk": {
-      "Bergbau": -2,
       "Fahrzeug Lenken": 1,
       "Lederarbeiten": 1
     }
@@ -353,7 +351,6 @@
     },
     "Handwerk": {
       "Abrichten": 2,
-      "Bergbau": -2,
       "Fahrzeug Lenken": -1,
       "Holzbearbeitung": -1,
       "Lederarbeiten": -1
