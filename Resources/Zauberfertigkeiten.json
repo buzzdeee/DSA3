@@ -1,0 +1,495 @@
+{
+  "Antimagie": {
+    "Beherrschungen brechen": {
+      "Probe": [ "KL", "IN", "CH", "+MR" ],
+      "Ursprung": [ "D" ],
+      "Reichweite": "B",
+      "Zauberdauer": [ "1m+" ],
+      "Wirkungsdauer": "permanent",
+      "Kosten": {
+        "Formel": "ABS(Stufe des Beherrschers - Stufe des Beherrschungsbrechers) * 4",
+        "Minimum": 8
+      },
+      "Startwerte": {
+        "Magier": -2,
+        "Scharlatan": -12,
+        "Hexe": -4,
+        "Druide": 2,
+        "Diener Sumus": 2,
+        "Herr der Erde": 2,
+        "Schelm": -10,
+        "Auelf": 0,
+        "Waldelf": -1,
+        "Firnelf": -2,
+        "Halbelf": -1
+      }
+    },
+    "Bewegungen stören": {
+      "Probe": [ "KL", "IN", "FF" ],
+      "Ursprung": [ "M" ],
+      "Reichweite": "49Schritt",
+      "Zauberdauer": [ "2s" ],
+      "Wirkungsdauer": "permanent",
+      "Kosten": {
+        "Formel": "ABS(Stufe des Bewegungsmagiers- Stufe des Störers) * 3",
+        "Minimum": 6
+      },
+      "Startwerte": {
+        "Magier": -4,
+        "Scharlatan": -13,
+        "Hexe": -8,
+        "Druide": -10,
+        "Diener Sumus": -8,
+        "Herr der Erde": -10,
+        "Schelm": -5,
+        "Auelf": -5,
+        "Waldelf": -5,
+        "Firnelf": -4,
+        "Halbelf": -4
+      }
+    },
+    "Destructibo Arcanitas": {
+      "Probe": [ "KL", "KL", "FF" ],
+      "Ursprung": [ "M" ],
+      "Reichweite": "B",
+      "Zauberdauer": [ "1m+" ],
+      "Wirkungsdauer": "permanent",
+      "Kosten": {
+        "Formel": "1 - 500 ASP, je nach Macht des Artefakts",
+        "Minimum": 0
+      },
+      "Startwerte": {
+        "Magier": -6,
+        "Scharlatan": -12,
+        "Hexe": -10,
+        "Druide": -10,
+        "Diener Sumus": -12,
+        "Herr der Erde": -10,
+        "Schelm": -16,
+        "Auelf": -12,
+        "Waldelf": -14,
+        "Firnelf": -16,
+        "Halbelf": -14
+      }
+    },
+    "Gardianum Paradei": {
+      "Probe": [ "IN", "CH", "KK" ],
+      "Ursprung": [ "M" ],
+      "Reichweite": "3Schritt",
+      "Zauberdauer": [ "2s", "5s" ],
+      "Wirkungsdauer": "Bis ASP aufgebraucht sind, max 1 Spielrunde",
+      "Kosten": {
+        "Formel": "Aufgewendete ASP",
+        "Minimum": 0
+      },
+      "Startwerte": {
+        "Magier": -1,
+        "Scharlatan": -9,
+        "Hexe": -9,
+        "Druide": -8,
+        "Diener Sumus": -9,
+        "Herr der Erde": -9,
+        "Schelm": -10,
+        "Auelf": -10,
+        "Waldelf": -10,
+        "Firnelf": -11,
+        "Halbelf": -11
+      }
+    },
+    "Hellsicht trüben": {
+      "Probe": [ "KL", "IN", "CH" ],
+      "Ursprung": [ "D" ],
+      "Reichweite": "15Schritt",
+      "Zauberdauer": [ "2s" ],
+      "Wirkungsdauer": "1 Spielrunde",
+      "Kosten": {
+        "Formel": "ABS(Stufe Hellsehers - Stufe Störers)",
+        "Minimum": 4
+      },
+      "Startwerte": {
+        "Magier": -3,
+        "Scharlatan": -5,
+        "Hexe": -2,
+        "Druide": 2,
+        "Diener Sumus": 0,
+        "Herr der Erde": 1,
+        "Schelm": 0,
+        "Auelf": -1,
+        "Waldelf": -6,
+        "Firnelf": -6,
+        "Halbelf": -5
+      }
+    },
+    "Illusionen zerstören": {
+      "Probe": [ "KL", "IN", "CH" ],
+      "Ursprung": [ "M" ],
+      "Reichweite": "7Schritt",
+      "Zauberdauer": [ "3s" ],
+      "Wirkungsdauer": "permanent",
+      "Kosten": {
+        "Formel": "ABS(Stufe Illusionist - Stufe Störers) * 2",
+        "Minimum": 5
+      },
+      "Startwerte": {
+        "Magier": -5,
+        "Scharlatan": -6,
+        "Hexe": -7,
+        "Druide": -9,
+        "Diener Sumus": -7,
+        "Herr der Erde": -9,
+        "Schelm": -6,
+        "Auelf": -7,
+        "Waldelf": -8,
+        "Firnelf": -9,
+        "Halbelf": -7
+      }
+    },
+    "Invercarno Spiegeltrick": {
+      "Probe": [ "MU", "MU", "IN" ],
+      "Ursprung": [ "M" ],
+      "Startwerte": {
+        "Magier": -10,
+        "Scharlatan": -15,
+        "Hexe": -12,
+        "Druide": -12,
+        "Diener Sumus": -12,
+        "Herr der Erde": -12,
+        "Schelm": -18,
+        "Auelf": -15,
+        "Waldelf": -15,
+        "Firnelf": -15,
+        "Halbelf": -15
+      }
+    },
+    "Kampfzauber stören": {
+      "Probe": [ "MU", "IN", "CH" ],
+      "Ursprung": [ "A" ],
+      "Startwerte": {
+        "Magier": -1,
+        "Scharlatan": -10,
+        "Hexe": -8,
+        "Druide": -9,
+        "Diener Sumus": -10,
+        "Herr der Erde": -10,
+        "Schelm": -15,
+        "Auelf": 1,
+        "Waldelf": -1,
+        "Firnelf": -3,
+        "Halbelf": 0
+      }
+    },
+    "Pentagramma Drudenfuß": {
+      "Probe": [ "MU", "MU", "CH" ],
+      "Ursprung": [ "M" ],
+      "Startwerte": {
+        "Magier": -8,
+        "Scharlatan": -18,
+        "Hexe": -10,
+        "Druide": -10,
+        "Diener Sumus": -9,
+        "Herr der Erde": -9,
+        "Schelm": -18,
+        "Auelf": -12,
+        "Waldelf": -15,
+        "Firnelf": -18,
+        "Halbelf": -12 
+      }
+    },
+    "Schleier der Unwissenheit": {
+      "Probe": [ "KL", "KL", "FF" ],
+      "Ursprung": [ "H" ],
+      "Startwerte": {
+        "Magier": -7,
+        "Scharlatan": -9,
+        "Hexe": -5,
+        "Druide": -9,
+        "Diener Sumus": -9,
+        "Herr der Erde": -9,
+        "Schelm": -7,
+        "Auelf": -9,
+        "Waldelf": -10,
+        "Firnelf": -11,
+        "Halbelf": -8
+      }
+    },
+    "Verständigung stören": {
+      "Probe": [ "KL", "CH", "FF" ],
+      "Ursprung": [ "F" ],
+      "Startwerte": {
+        "Magier": -4,
+        "Scharlatan": -7,
+        "Hexe": -4,
+        "Druide": -1,
+        "Diener Sumus": -7,
+        "Herr der Erde": -7,
+        "Schelm": -6,
+        "Auelf": -2,
+        "Waldelf": -2,
+        "Firnelf": 0,
+        "Halbelf": -3
+      }
+    },
+    "Verwandlungen beenden": {
+      "Probe": [ "MU", "KL", "CH" ],
+      "Ursprung": [ "H" ],
+      "Startwerte": {
+        "Magier": -8,
+        "Scharlatan": -15,
+        "Hexe": -5,
+        "Druide": -12,
+        "Diener Sumus": -5,
+        "Herr der Erde": -7,
+        "Schelm": -15,
+        "Auelf": -10,
+        "Waldelf": -11,
+        "Firnelf": -12,
+        "Halbelf": -12
+      }
+    },
+    "Wider Hellsicht und Befehle": {
+      "Probe": [ "MU", "KL", "CH" ],
+      "Ursprung": [ "M" ],
+      "Startwerte": {
+        "Magier": -3,
+        "Scharlatan": -6,
+        "Hexe": -6,
+        "Druide": -5,
+        "Diener Sumus": -7,
+        "Herr der Erde": -6,
+        "Schelm": -8,
+        "Auelf": -6,
+        "Waldelf": -6,
+        "Firnelf": -6,
+        "Halbelf": -6
+      }
+    }
+  },
+  "Beherrschung": {
+    "Band und Fessel dich umringt": {
+      "Probe": [ "KL", "CH", "KK", "+MR" ],
+      "Ursprung": [ "W" ],
+      "Startwerte": {
+        "Magier": -6,
+        "Scharlatan": -8,
+        "Hexe": -6,
+        "Druide": -6,
+        "Diener Sumus": -8,
+        "Herr der Erde": -6,
+        "Schelm": -8,
+        "Auelf": -4,
+        "Waldelf": 0,
+        "Firnelf": -2,
+        "Halbelf": -3
+      }
+    }
+  },
+  "Beschwörung Dämonischer Mächte": {
+    "Furor Blut und Sulphurdampf": {
+      "Probe": [ "MU", "MU", "CH" ],
+      "Ursprung": [ "M" ],
+      "Startwerte": {
+        "Magier": -5,
+        "Scharlatan": -20,
+        "Hexe": -10,
+        "Druide": -10,
+        "Diener Sumus": -10,
+        "Herr der Erde": -8,
+        "Schelm": -20,
+        "Auelf": -20,
+        "Waldelf": -20,
+        "Firnelf": -20,
+        "Halbelf": -12
+      }
+    }
+  },
+  "Die Sieben Formeln der Zeit": {
+    "Blick in die Vergangenheit": {
+      "Probe": [ "KL", "KL", "CH" ],
+      "Ursprung": [ "D" ],
+      "Startwerte": {
+        "Magier": -12,
+        "Scharlatan": -15,
+        "Hexe": -15,
+        "Druide": -8,
+        "Diener Sumus": -12,
+        "Herr der Erde": -8,
+        "Schelm": -15,
+        "Auelf": -15,
+        "Waldelf": -16,
+        "Firnelf": -17,
+        "Halbelf": -16
+      }
+    }
+  },
+  "Beschwörung Elementarer Kräfte": {
+    "Auge des Limbus": {
+      "Probe": [ "MU", "CH", "KK" ],
+      "Ursprung": [ "M" ],
+      "Startwerte": {
+        "Magier": -12,
+        "Scharlatan": -20,
+        "Hexe": -18,
+        "Druide": -15,
+        "Diener Sumus": -15,
+        "Herr der Erde": -15,
+        "Schelm": -20,
+        "Auelf": -20,
+        "Waldelf": -20,
+        "Firnelf": -20,
+        "Halbelf": -20
+      }
+    }
+  },
+  "Bewegung": {
+    "Aufgeblasen, Abgehoben": {
+      "Probe": [ "CH", "KK", "KK" ],
+      "Ursprung": [ "S" ],
+      "Startwerte": {
+        "Magier": -20,
+        "Scharlatan": -20,
+        "Hexe": -20,
+        "Druide": -20,
+        "Diener Sumus": -20,
+        "Herr der Erde": -20,
+        "Schelm": -7,
+        "Auelf": -20,
+        "Waldelf": -20,
+        "Firnelf": -20,
+        "Halbelf": -20
+      }
+    }
+  },
+  "Heilung": {
+    "Ängste lindern": {
+      "Probe": [ "MU", "IN", "CH" ],
+      "Ursprung": [ "H" ],
+      "Startwerte": {
+        "Magier": -2,
+        "Scharlatan": -9,
+        "Hexe": 3,
+        "Druide": -10,
+        "Diener Sumus": 3,
+        "Herr der Erde": -1,
+        "Schelm": -10,
+        "Auelf": -3,
+        "Waldelf": -3,
+        "Firnelf": -3,
+        "Halbelf": -4
+      }
+    }
+  },
+  "Hellsicht": {
+    "Adleraug und Luchsenohr": {
+      "Probe": [ "KL", "IN", "FF" ],
+      "Ursprung": [ "A" ],
+      "Startwerte": {
+        "Magier": -7,
+        "Scharlatan": -8,
+        "Hexe": -4,
+        "Druide": -4,
+        "Diener Sumus": -4,
+        "Herr der Erde": -4,
+        "Schelm": -7,
+        "Auelf": 2,
+        "Waldelf": 1,
+        "Firnelf": 2,
+        "Halbelf": 1
+      }
+    }
+  },
+  "Illusion": {
+    "Aureolus Güldenglanz": {
+      "Probe": [ "KL", "CH", "FF" ],
+      "Ursprung": [ "M" ],
+      "Startwerte": {
+        "Magier": -3,
+        "Scharlatan": 0,
+        "Hexe": -6,
+        "Druide": -8,
+        "Diener Sumus": -12,
+        "Herr der Erde": -12,
+        "Schelm": -4,
+        "Auelf": -8,
+        "Waldelf": -10,
+        "Firnelf": -9,
+        "Halbelf": -7
+      }
+    }
+  },
+  "Kampf": {
+    "Blitz dich find": {
+      "Probe": [ "KL", "IN", "GE" ],
+      "Ursprung": [ "W" ],
+      "Startwerte": {
+        "Magier": 2,
+        "Scharlatan": 0,
+        "Hexe": 0,
+        "Druide": 1,
+        "Diener Sumus": 1,
+        "Herr der Erde": 1,
+        "Schelm": 0,
+        "Auelf": 4,
+        "Waldelf": 5,
+        "Firnelf": 4,
+        "Halbelf": 4
+      }
+    }
+  },
+  "Verständigung": {
+    "Cryptographo Zauberschrift": {
+      "Probe": [ "KL", "KL", "IN" ],
+      "Ursprung": [ "M" ],
+      "Startwerte": {
+        "Magier": -5,
+        "Scharlatan": -5,
+        "Hexe": -8,
+        "Druide": -15,
+        "Diener Sumus": -15,
+        "Herr der Erde": -12,
+        "Schelm": -10,
+        "Auelf": -12,
+        "Waldelf": -15,
+        "Firnelf": -18,
+        "Halbelf": -12
+      }
+    }
+  },
+  "Verwandlung von Lebewesen": {
+    "Adler, Wolf und Hammerhai": {
+      "Probe": [ "MU", "IN", "GE" ],
+      "Ursprung": [ "W" ],
+      "Startwerte": {
+        "Magier": -10,
+        "Scharlatan": -12,
+        "Hexe": -7,
+        "Druide": -8,
+        "Diener Sumus": -8,
+        "Herr der Erde": -8,
+        "Schelm": -15,
+        "Auelf": -6,
+        "Waldelf": -3,
+        "Firnelf": -5,
+        "Halbelf": -7
+      }
+    }
+  },
+  "Verwandlung von Unbelebtem": {
+    "Abvenenum Pest und Galle": {
+      "Probe": [ "KL", "KL", "FF" ],
+      "Ursprung": [ "W" ],
+      "Startwerte": {
+        "Magier": -2,
+        "Scharlatan": -10,
+        "Hexe": -4,
+        "Druide": -6,
+        "Diener Sumus": -4,
+        "Herr der Erde": -6,
+        "Schelm": -8,
+        "Auelf": -2,
+        "Waldelf": 0,
+        "Firnelf": -4,
+        "Halbelf": -3
+      }
+    }
+  }
+}
