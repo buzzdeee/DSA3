@@ -35,7 +35,7 @@
 @synthesize typus;
 @synthesize herkunft;
 @synthesize berufe;
-@synthesize magierakademie;
+@synthesize magischeSchule;
 @synthesize geschlecht;
 @synthesize haarfarbe;
 @synthesize augenfarbe;
@@ -45,6 +45,8 @@
 @synthesize gottheit;
 @synthesize sterne;
 @synthesize eltern;
+@synthesize stand;
+@synthesize vermoegen;
 @synthesize le;
 @synthesize ae;
 @synthesize ke;
@@ -86,11 +88,11 @@
   [self didChangeValueForKey: @"berufe"];
 }
 
-- (void) setMagierakademie: (NSString *)inMagierakademie
+- (void) setMagischeSchule: (NSString *)inMagischeSchule
 {
-  [self willChangeValueForKey: @"magierakademie"];
-  magierakademie = inMagierakademie;
-  [self didChangeValueForKey: @"magierakademie"];
+  [self willChangeValueForKey: @"magischeSchule"];
+  magischeSchule = inMagischeSchule;
+  [self didChangeValueForKey: @"magischeSchule"];
 }
 
 - (void) setGeschlecht: (NSString *)inGeschlecht
@@ -135,7 +137,7 @@
   [self didChangeValueForKey: @"geburtstag"];
 }
 
-- (void) setGottheit: (NSDictionary *)inGottheit
+- (void) setGottheit: (NSString *)inGottheit
 {
   [self willChangeValueForKey: @"gottheit"];
   gottheit = inGottheit;
@@ -154,6 +156,20 @@
   [self willChangeValueForKey: @"eltern"];
   eltern = inEltern;
   [self didChangeValueForKey: @"eltern"];
+}
+
+- (void) setStand: (NSString *)inStand
+{
+  [self willChangeValueForKey: @"stand"];
+  stand = inStand;
+  [self didChangeValueForKey: @"stand"];
+}
+
+- (void) setVermoegen: (NSDictionary *)inVermoegen
+{
+  [self willChangeValueForKey: @"vermoegen"];
+  vermoegen = inVermoegen;
+  [self didChangeValueForKey: @"vermoegen"];
 }
 
 - (void) setLe: (NSInteger)inLe
@@ -207,6 +223,7 @@
   [self setTypus: [decoder decodeObjectForKey:@"typus"]];
   [self setHerkunft: [decoder decodeObjectForKey:@"herkunft"]];
   [self setBerufe: [decoder decodeObjectForKey:@"berufe"]];
+  [self setMagischeSchule: [decoder decodeObjectForKey:@"magischeSchule"]];
   [self setGeschlecht: [decoder decodeObjectForKey:@"geschlecht"]];
   [self setHaarfarbe: [decoder decodeObjectForKey:@"haarfarbe"]];
   [self setAugenfarbe: [decoder decodeObjectForKey:@"augenfarbe"]];
@@ -216,6 +233,8 @@
   [self setGottheit: [decoder decodeObjectForKey:@"gottheit"]];
   [self setSterne: [decoder decodeObjectForKey:@"sterne"]];
   [self setEltern: [decoder decodeObjectForKey:@"eltern"]];
+  [self setStand: [decoder decodeObjectForKey:@"stand"]];
+  [self setVermoegen: [decoder decodeObjectForKey:@"vermoegen"]];  
   [self setLe: [decoder decodeIntegerForKey:@"le"]];
   [self setAe: [decoder decodeIntegerForKey:@"ae"]];
   [self setKe: [decoder decodeIntegerForKey:@"ke"]];
@@ -233,6 +252,7 @@
     [encoder encodeObject: typus forKey:@"typus"];
     [encoder encodeObject: herkunft forKey:@"herkunft"];
     [encoder encodeObject: berufe forKey:@"berufe"];
+    [encoder encodeObject: magischeSchule forKey:@"magischeSchule"];
     [encoder encodeObject: geschlecht forKey:@"geschlecht"];
     [encoder encodeObject: haarfarbe forKey:@"haarfarbe"];
     [encoder encodeObject: augenfarbe forKey:@"augenfarbe"];
@@ -242,6 +262,8 @@
     [encoder encodeObject: gottheit forKey:@"gottheit"];
     [encoder encodeObject: sterne forKey:@"sterne"];
     [encoder encodeObject: eltern forKey:@"eltern"];
+    [encoder encodeObject: eltern forKey:@"stand"];    
+    [encoder encodeObject: eltern forKey:@"vermoegen"];        
     [encoder encodeInteger: le forKey:@"le"];                                        
     [encoder encodeInteger: ae forKey:@"ae"];
     [encoder encodeInteger: ke forKey:@"ke"];

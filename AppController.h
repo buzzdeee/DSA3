@@ -12,8 +12,6 @@
 #define _PCAPPPROJ_APPCONTROLLER_H
 
 #import <AppKit/AppKit.h>
-// Uncomment if your application is Renaissance-based
-//#import <Renaissance/Renaissance.h>
 
 @class Utils;
 @class Charakter;
@@ -47,8 +45,9 @@
   IBOutlet NSPopUpButton *popupWinCharDefTypus;
   IBOutlet NSPopUpButton *popupWinCharDefHerkunft;
   IBOutlet NSPopUpButton *popupWinCharDefBeruf;
-  IBOutlet NSPopUpButton *popupWinCharDefMagierakademie;
+  IBOutlet NSPopUpButton *popupWinCharDefMagischeSchule;
   IBOutlet NSButton      *buttonCharDefCharGen;
+  IBOutlet NSTextField   *fieldCharDefMagischeSchule;
   
   /* Charakter generieren */
   IBOutlet NSWindow      *windowCharGen;
@@ -138,14 +137,15 @@
 	    openFile: (NSString *)fileName;
 
 - (void) showPrefPanel: (id)sender;
-//- (void) showCharDefWindow: (id)sender;
+
 - (IBAction) showCharGenWindow: (id)sender;
 - (IBAction) showTalenteWindow: (id)sender;
 - (IBAction) showCharLoadWindow: (id)sender;
-- (void) showCharacterStartwerte: (id)sender;
-- (void) updateCharacterStartwerte: (id)sender;
 
-- (void) popupCharDefTypusSelected: (id)sender;
+- (IBAction) popupCharDefTypusSelected: (id)sender;
+- (IBAction) popupCharDefHerkunftSelected: (id)sender;
+- (IBAction) popupCharDefBerufSelected: (id)sender;
+- (IBAction) popupCharDefMagischeSchuleSelected: (id)sender;
 - (void) farbeFuerEigenschaftsfeldSetzen: (NSString *) feldName;
 - (void) testButtonCharGenAuswahlEnable;
 

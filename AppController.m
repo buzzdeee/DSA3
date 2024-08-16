@@ -9,7 +9,6 @@
 */
 
 #import "AppController.h"
-#import "CharacterStartwerte.h"
 #import "Charakter.h"
 #import "Utils.h"
 
@@ -80,16 +79,6 @@
 {
 }
 
-- (IBAction) showCharacterStartwerte: (id)sender
-{
-      //theText = [[NSTextField alloc] init];
-NSLog(@"showCharacterStartwerte got called");
-CharacterStartwerte *characterStartwerte = [[CharacterStartwerte alloc] init];
-[popupCharacterChooser removeAllItems];
-[popupCharacterChooser addItemsWithTitles: [characterStartwerte getCharacterTypesList]];
-[windowCharacterStartwerte makeKeyAndOrderFront: self];
-}
-
 - (IBAction) selectCharacterType: (id)sender
 {
   //[allCharacterTypes addItemsWithTitles:[characterConstraints allKeys]];
@@ -114,17 +103,30 @@ CharacterStartwerte *characterStartwerte = [[CharacterStartwerte alloc] init];
     {
   
       NSDictionary *charConstraints = [NSDictionary dictionaryWithDictionary: [utils getTypusForTypus: [[popupWinCharDefTypus selectedItem] title]]];
-  
-      [utils getTypusForTypus: [[popupWinCharDefTypus selectedItem] title]];
+      NSLog(@"charConstraints: %@", charConstraints);
+      
       if ( [[[popupWinCharDefTypus selectedItem] title] isEqualToString: @"Magier"] )
         {
-          [popupWinCharDefMagierakademie setEnabled: YES];
+          [popupWinCharDefMagischeSchule setEnabled: YES];
+          [popupWinCharDefMagischeSchule removeAllItems];
+          [popupWinCharDefMagischeSchule addItemsWithTitles: [[utils magierakademienDict] allKeys]];
+          [fieldCharDefMagischeSchule setStringValue: @"Magierakademie"];
+        }
+      else if ( [[[popupWinCharDefTypus selectedItem] title] isEqualToString: @"Geode"] )
+        {
+          [popupWinCharDefMagischeSchule setEnabled: YES];
+          [popupWinCharDefMagischeSchule removeAllItems];
+          [popupWinCharDefMagischeSchule addItemsWithTitles: [charConstraints objectForKey: @"Schule"]];
+          [fieldCharDefMagischeSchule setStringValue: @"Geodische Fakultät"];
         }
       else
         {
-          [popupWinCharDefMagierakademie selectItemAtIndex: 0];    
-          [popupWinCharDefMagierakademie setEnabled: NO];    
+          [popupWinCharDefMagischeSchule selectItemAtIndex: 0];    
+          [popupWinCharDefMagischeSchule setEnabled: NO];   
+          [popupWinCharDefMagischeSchule setTitle: @"Schule"];  
+          [fieldCharDefMagischeSchule setStringValue: @"Magische Schule"];
         }
+        
       if ( [[charConstraints valueForKey: @"Herkunftmodifikator"] boolValue] == YES )
         {
           [popupWinCharDefHerkunft setEnabled: YES];
@@ -134,13 +136,16 @@ CharacterStartwerte *characterStartwerte = [[CharacterStartwerte alloc] init];
           [popupWinCharDefHerkunft selectItemAtIndex: 0];
           [popupWinCharDefHerkunft setEnabled: NO];
         }
+        
       if ( [[charConstraints valueForKey: @"Berufmodifikator"] boolValue] == YES )
         {
           [popupWinCharDefBeruf setEnabled: YES];
+          [popupWinCharDefBeruf selectItemAtIndex: 0];
         }
       else
         {
           [popupWinCharDefBeruf selectItemAtIndex: 0];
+          [popupWinCharDefBeruf setEnabled: NO];
           
         }
       [buttonCharGenGenerieren setEnabled: YES];
@@ -174,7 +179,7 @@ CharacterStartwerte *characterStartwerte = [[CharacterStartwerte alloc] init];
     {
       [buttonCharGenGenerieren setEnabled: NO];
       [buttonCharGenAuswahl setEnabled: NO];
-      [popupWinCharDefMagierakademie setEnabled: NO];      
+      [popupWinCharDefMagischeSchule setEnabled: NO];      
     }  
 }
 
@@ -182,7 +187,6 @@ CharacterStartwerte *characterStartwerte = [[CharacterStartwerte alloc] init];
 {
 
   NSLog(@"popupCharDefHerkunftSelected got called");
-  
   [aktiverCharakter setHerkunft: [[popupWinCharDefHerkunft selectedItem] title]];
   
 }
@@ -191,17 +195,34 @@ CharacterStartwerte *characterStartwerte = [[CharacterStartwerte alloc] init];
 {
 
   NSLog(@"popupCharDefBerufSelected got called");
-  
   [aktiverCharakter setBerufe: [NSArray arrayWithObjects: [[popupWinCharDefBeruf selectedItem] title], nil]];
   
+      NSDictionary *berufeConstraints = [[[[utils berufeDict] objectForKey: [[popupWinCharDefBeruf selectedItem] title]] objectForKey: @"Bedingung"] objectForKey: @"Basiswerte"];  
+      NSLog(@"berufeConstraints: %@", berufeConstraints);    
+      for (NSString *field in [NSArray arrayWithObjects: @"MU", @"KL", @"IN", @"CH", @"FF", @"GE", @"KK", 
+                                                        @"AG", @"HA", @"RA", @"TA", @"NG", @"GG", @"JZ", nil ])
+        {
+          
+          if ([berufeConstraints objectForKey: field] == nil)
+            {
+              NSLog(@"checking field was nil: %@", field);
+              // Beruf hat stärkere Bedingung als Typus
+              // gibt eh keine logischen Konflikte, da nur Anatom Bedingung auf TA hat...
+            }
+          else
+            {
+              NSLog(@"checking field had value: %@", field);
+              [[self valueForKey: [NSString stringWithFormat: @"fieldCharGen%@C", field]] setStringValue: [berufeConstraints objectForKey: field]];              
+            }
+        } 
 }
 
-- (void) popupCharDefMagierakademieSelected: (id)sender
+- (void) popupCharDefMagischeSchuleSelected: (id)sender
 {
 
   NSLog(@"popupCharDefMagierakademieSelected got called");
   
-  [aktiverCharakter setMagierakademie: [[popupWinCharDefMagierakademie selectedItem] title]];
+  [aktiverCharakter setMagischeSchule: [[popupWinCharDefMagischeSchule selectedItem] title]];
   
 }
 
@@ -214,10 +235,10 @@ CharacterStartwerte *characterStartwerte = [[CharacterStartwerte alloc] init];
   [popupWinCharDefTypus addItemsWithTitles: [[utils typusDict] allKeys]];
   [popupWinCharDefHerkunft addItemsWithTitles: [[utils herkunftDict] allKeys]];
   [popupWinCharDefBeruf addItemsWithTitles: [[utils berufeDict] allKeys]];
-  [popupWinCharDefMagierakademie addItemsWithTitles: [[utils magierakademienDict] allKeys]];    
+  [popupWinCharDefMagischeSchule addItemsWithTitles: [[utils magierakademienDict] allKeys]];    
   [popupWinCharDefHerkunft setEnabled: NO];
   [popupWinCharDefBeruf setEnabled: NO];
-  [popupWinCharDefMagierakademie setEnabled: NO];
+  [popupWinCharDefMagischeSchule setEnabled: NO];
   [buttonCharGenGenerieren setEnabled: NO];  
   [buttonCharGenAuswahl setEnabled: NO];
   [fieldCharGenName setEnabled: NO];
@@ -234,7 +255,7 @@ CharacterStartwerte *characterStartwerte = [[CharacterStartwerte alloc] init];
   NSLog(@"typus: %@", [aktiverCharakter typus]);
   NSLog(@"herkunft: %@", [aktiverCharakter herkunft]);
   NSLog(@"berufe: %@", [aktiverCharakter berufe]);
-  NSLog(@"magierakademie: %@", [aktiverCharakter magierakademie]);      
+  NSLog(@"magischeSchule: %@", [aktiverCharakter magischeSchule]);      
   [windowTalente makeKeyAndOrderFront: self];
 }
 
@@ -254,8 +275,8 @@ CharacterStartwerte *characterStartwerte = [[CharacterStartwerte alloc] init];
 - (IBAction)generiereBasiswerte: (id)sender
 {
   NSLog(@"HERE in generiereBasiswerte");
-  CharacterStartwerte *characterStartwerte = [[CharacterStartwerte alloc] init];
-  NSDictionary *charConstraints = [NSDictionary dictionaryWithDictionary: [characterStartwerte getTypusForTypus: [[popupWinCharDefTypus selectedItem] title]]];
+
+  NSDictionary *charConstraints = [NSDictionary dictionaryWithDictionary: [utils getTypusForTypus: [[popupWinCharDefTypus selectedItem] title]]];
   NSArray *positiveArr = [NSArray arrayWithArray: [utils positiveEigenschaftenGenerieren]];
   NSArray *negativeArr = [NSArray arrayWithArray: [utils negativeEigenschaftenGenerieren]];
   NSDictionary *haarConstraints = [charConstraints objectForKey: @"Haarfarbe"];
@@ -276,6 +297,9 @@ CharacterStartwerte *characterStartwerte = [[CharacterStartwerte alloc] init];
   [fieldCharGenName setEnabled: YES];
   [fieldCharGenTitel setEnabled: YES];
   
+  [popupCharGenGeschlecht removeAllItems];
+  [popupCharGenGeschlecht addItemsWithTitles: [charConstraints objectForKey: @"Geschlecht"]];
+  
   if ([[fieldCharGenName stringValue] length] > 0)
     {
       [fieldCharGenName setBackgroundColor: [NSColor whiteColor]];
@@ -295,7 +319,11 @@ CharacterStartwerte *characterStartwerte = [[CharacterStartwerte alloc] init];
     
   [fieldCharGenStand setStringValue: [herkunftEltern objectForKey: @"Stand"]];
   [fieldCharGenEltern setStringValue: [herkunftEltern objectForKey: @"Eltern"]];
-  [fieldCharGenGeld setStringValue: [NSString stringWithFormat: @"%@D %@S %@H %@K", [startvermoegenDict objectForKey: @"D"], [startvermoegenDict objectForKey: @"S"], [startvermoegenDict objectForKey: @"H"], [startvermoegenDict objectForKey: @"K"]]];
+  [fieldCharGenGeld setStringValue: [NSString stringWithFormat: @"%@D %@S %@H %@K", 
+                                              [startvermoegenDict objectForKey: @"D"], 
+                                              [startvermoegenDict objectForKey: @"S"], 
+                                              [startvermoegenDict objectForKey: @"H"], 
+                                              [startvermoegenDict objectForKey: @"K"]]];
   [fieldCharGenSterne setStringValue: [[[utils goetterDict] objectForKey: [geburtstag objectForKey: @"Monat"]] objectForKey: @"Sternbild"]];
   
   // positive Eigenschaften
@@ -318,7 +346,9 @@ CharacterStartwerte *characterStartwerte = [[CharacterStartwerte alloc] init];
     }
       
   [self testButtonCharGenAuswahlEnable];
-//  [buttonCharGenAuswahl setEnabled: enableButtonCharGenAuswahl];
+
+  [aktiverCharakter setGeburtstag: geburtstag];
+  [aktiverCharakter setVermoegen: startvermoegenDict];
 }
 
 - (void) testButtonCharGenAuswahlEnable
@@ -338,6 +368,21 @@ CharacterStartwerte *characterStartwerte = [[CharacterStartwerte alloc] init];
     }
   else
     {
+      // Seems we're good to go, save everything to the active character
+      [aktiverCharakter setName: [fieldCharGenName stringValue]];
+      [aktiverCharakter setTitel: [fieldCharGenTitel stringValue]];
+      [aktiverCharakter setHaarfarbe: [fieldCharGenHaarfarbe stringValue]];      
+      [aktiverCharakter setAugenfarbe: [fieldCharGenAugenfarbe stringValue]];            
+      [aktiverCharakter setGroesse: [fieldCharGenGroesse stringValue]];                  
+      [aktiverCharakter setGewicht: [fieldCharGenGewicht stringValue]];                        
+      [aktiverCharakter setGottheit: [fieldCharGenGottheit stringValue]];                              
+      [aktiverCharakter setSterne: [fieldCharGenSterne stringValue]];                                    
+      [aktiverCharakter setStand: [fieldCharGenStand stringValue]];                                          
+      [aktiverCharakter setEltern: [fieldCharGenEltern stringValue]];
+      [aktiverCharakter setGeschlecht: [[popupCharGenGeschlecht selectedItem] title]];
+
+      
+      
       [buttonCharGenAuswahl setEnabled: YES];
     }
 } 
@@ -501,7 +546,6 @@ CharacterStartwerte *characterStartwerte = [[CharacterStartwerte alloc] init];
   NSLog(@"showCharacterWindow got called!");
   [aktiverCharakter setName: [fieldCharGenName stringValue]];
   [aktiverCharakter setTitel: [fieldCharGenTitel stringValue]];
-  //[NSKeyedArchiver archiveRootObject: aktiverCharakter toFile:@"/tmp/charakter.plist"];
 
 
   
@@ -517,61 +561,6 @@ CharacterStartwerte *characterStartwerte = [[CharacterStartwerte alloc] init];
   
 }
 
-- (IBAction) updateCharacterStartwerte: (id)sender
-{
-  NSLog(@"HERE IN AppController updateCharacterType: %@", [[popupCharacterChooser selectedItem] title]);
-  NSString *characterType = [[popupCharacterChooser selectedItem] title];
-  NSLog(@"%@", characterType);
-  CharacterStartwerte *characterStartwerte = [[CharacterStartwerte alloc] init];
-  NSDictionary *characterConstraints = [characterStartwerte getCharacterConstraintsForCharacter: characterType];
-  NSDictionary *eigenschaften = [characterConstraints objectForKey: @"Eigenschaften"];
-  //NSArray *eigenschaftsKeys = [[NSArray arrayWithArray: [ @"MU", @"KL", @"IN", @"CH", @"FF", @"GE", @"KK", @"AG", @"HA", @"RA", @"TA", @"NG", @"GG", @"JZ" ]];
-  NSArray *characterKeys = [NSArray arrayWithArray: [eigenschaften allKeys]];
-  if ([characterKeys containsObject: @"MU"])
-    {
-      [fieldStartwerteMU setStringValue:[eigenschaften objectForKey: @"MU"]];
-    }
-  else
-    {
-      [fieldStartwerteMU setStringValue: @""];
-    }
-  if ([characterKeys containsObject: @"KL"])
-    {
-      [fieldStartwerteKL setStringValue: [eigenschaften objectForKey: @"KL"]];
-    }
-  else
-    {
-      [fieldStartwerteKL setStringValue: @""];
-    }  
-  if ([characterKeys containsObject: @"IN"])
-    {
-      [fieldStartwerteIN setStringValue: [eigenschaften objectForKey: @"IN"]];
-    }
-  else
-    {
-      [fieldStartwerteIN setStringValue: @""];
-    } 
-  if ([characterKeys containsObject: @"CH"])
-    {
-      [fieldStartwerteCH setStringValue: [eigenschaften objectForKey: @"CH"]];
-    }
-  else
-    {
-      [fieldStartwerteCH setStringValue: @""];
-    } 
-/*  if ([characterKeys containsObject: @""])
-    {
-      [fieldStartwerte setStringValue: [eigenschaften objectForKey: @""]];
-    }
-  else
-    {
-      [fieldStartwerte setStringValue: @""];
-    }     
-*/
-    
-      NSLog(@"%@", eigenschaften);
-
-}
 
 
 
