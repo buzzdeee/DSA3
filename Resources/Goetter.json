@@ -11,7 +11,9 @@
   "Basiswerte": { },
   "Talente": {
     "Kampftechniken": {
-      "Schwerter": 1
+      "Bewaffnete Kampftechniken": {
+        "Schwerter": 1
+      }
     }
   }
  },
@@ -60,7 +62,9 @@
       "Fährtensuchen": 1
     },
     "Kampftechniken": {
-      "Schußwaffen": 1
+      "Fernkampftechniken": {
+        "Schußwaffen": 1
+      }
     }
   }
  },
@@ -98,7 +102,9 @@
   "Basiswerte": { },
   "Talente": {
     "Kampftechniken": {
-      "Stumpfe Hiebwaffen": 1
+      "Bewaffnete Kampftechniken": {
+        "Stumpfe Hiebwaffen": 1
+      }
     }
   }
  },

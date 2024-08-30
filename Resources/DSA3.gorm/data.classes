@@ -6,8 +6,7 @@
 	    "showCharGenWindow:",
 	    "showTalenteWindow:",
 	    "showCharLoadWindow:",
-	    "showCharacterStartwerte:",
-	    "updateCharacterStartwerte:",
+	    "popupCharDefKategorieSelected:",
 	    "popupCharDefTypusSelected:",
 	    "popupCharDefHerkunftSelected:",
 	    "popupCharDefBerufSelected:",
@@ -36,6 +35,7 @@
 	    fieldStartwerteGG,
 	    fieldStartwerteJZ,
 	    windowCharDef,
+	    popupWinCharDefKategorie,
 	    popupWinCharDefTypus,
 	    popupWinCharDefHerkunft,
 	    popupWinCharDefBeruf,
@@ -109,7 +109,13 @@
 	    fieldTalenteCH,
 	    fieldTalenteFF,
 	    fieldTalenteGE,
-	    fieldTalenteKK
+	    fieldTalenteKK,
+	    fieldVerbleibendeSteigerungsversuche,
+	    talenteWinMainTabview,
+	    talenteWinSubTabview,
+	    flippedView,
+	    talenteView,
+	    talenteViewTabView
 	);
 	Super = NSObject;
     };
@@ -128,6 +134,13 @@
 	Outlets = (
 	);
 	Super = NSWindow;
+    };
+    Charakter = {
+	Actions = (
+	);
+	Outlets = (
+	);
+	Super = NSObject;
     };
     DSA3Main = {
 	Actions = (
@@ -156,6 +169,7 @@
 	    "createCharacter:",
 	    "generateCharacter:",
 	    "generiereBasiswerte:",
+	    "generiereStartwerte:",
 	    "loadGame:",
 	    "newAction:",
 	    "openBestiarium:",
@@ -169,6 +183,7 @@
 	    "orderFrontFontPanel:",
 	    "popupCharDefBerufSelected:",
 	    "popupCharDefHerkunftSelected:",
+	    "popupCharDefKategorieSelected:",
 	    "popupCharDefMagischeSchuleSelected:",
 	    "popupCharDefTypusSelected:",
 	    "selectCharacterType:",
@@ -199,6 +214,13 @@
 	Outlets = (
 	);
 	Super = NSWindow;
+    };
+    NSFlippedView = {
+	Actions = (
+	);
+	Outlets = (
+	);
+	Super = NSView;
     };
     Utils = {
 	Actions = (

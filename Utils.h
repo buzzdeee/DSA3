@@ -27,6 +27,9 @@
 
 #import <Foundation/Foundation.h>
 
+@class Charakter;
+
+
 @interface Utils : NSObject
 
 @property (readonly) NSMutableDictionary *talenteDict;
@@ -51,13 +54,25 @@
 - (NSArray *) positiveEigenschaftenGenerieren;
 - (NSArray *) negativeEigenschaftenGenerieren;
 - (NSDictionary *) geburtstagGenerieren;
-- (NSString *) haarfarbeVonConstraintGenerieren: (NSDictionary *) haarConstraint;
-- (NSString *) augenfarbeVonHaarfarbeGenerieren: (NSString *) haarfarbe;
 - (NSString *) groesseGenerieren: (NSString *) characterType;
 - (NSString *) gewichtGenerieren: (NSString *) characterType groesse: (NSString *) groesse;
 - (NSDictionary *) famHerkunftGenerieren: (NSString *)characterType;
 - (NSDictionary *) startvermoegenGenerieren: (NSString *)stand;
 - (NSDictionary *) getTypusForTypus: (NSString *) characterType;
+- (NSArray *) getAllTypusKategorien;
+- (NSArray *) getAllTypusForKategorie: (NSString *) kategorie;
+- (NSMutableDictionary *) getTalenteForTypus: (NSString *) characterType;
+- (NSArray *) getBerufeForTypus: (NSString *) characterType;
+- (NSArray *) getHerkuenfteForTypus: (NSString *) characterType;
+
+- (NSString *) getHaarfarbeForTypus: (NSString *) characterType;
+- (NSString *) getAugenfarbeForTypus: (NSString *) characterType withHaarfarbe: (NSString *) haarfarbe;
+- (NSString *) getProbeStringFromProbeDict: (NSArray *) probe;
+- (NSMutableDictionary *) getTalentDictFromTalenteDict: (NSMutableDictionary *) dict forTalent: (NSString *) talent;
+
+- (void) apply: (NSString *) what toCharakter: (Charakter *) charakter;
+
+
 @end
 
 #endif // _UTILS_H_

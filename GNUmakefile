@@ -44,7 +44,10 @@ AppController.h \
 DSA3Main.h \
 CharacterStartwerte.h \
 Utils.h \
-Charakter.h
+Charakter.h \
+NSFlippedView.h \
+NSDictionary+Extras.h \
+NSMutableDictionary+Extras.h
 
 #
 # Objective-C Class files
@@ -52,7 +55,10 @@ Charakter.h
 DSA3_OBJC_FILES = \
 AppController.m \
 Utils.m \
-Charakter.m
+Charakter.m \
+NSFlippedView.m \
+NSDictionary+Extras.m \
+NSMutableDictionary+Extras.m
 
 #
 # Other sources

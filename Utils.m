@@ -26,6 +26,10 @@
 #include <math.h>
 #import <dispatch/dispatch.h>
 #import "Utils.h"
+#import "Charakter.h"
+#import "NSDictionary+Extras.h"
+#import "NSMutableDictionary+Extras.h"
+
 
 
 @implementation Utils
@@ -94,7 +98,8 @@ static Utils *_sharedInstance = nil;
       goetterDict = RETAIN([NSJSONSerialization 
         JSONObjectWithData: [NSData dataWithContentsOfFile: @"/home/sebastia/GIT/DSA3/Resources/Goetter.json"]
         options: NSJSONReadingMutableContainers
-        error: &e]);         
+        error: &e]);   
+      NSLog(@"HERE IN UTILS GOETTER DICT: %@", goetterDict);
     }   
   return self; 
 }
@@ -162,14 +167,91 @@ static Utils *_sharedInstance = nil;
 }
 
 
+/* The berufeDict contains all known Berufe. Some Characters can have
+   Berufe from the beginning, find those in the dict. */
+
+- (NSArray *) getBerufeForTypus: (NSString *) characterType
+{
+  NSMutableArray *berufe = [[NSMutableArray alloc] init];
+  
+  if (characterType == nil)
+    {
+      NSLog(@"getBerufeForTypus: characterType was NIL");
+      [berufe addObject: @"Kein Beruf"];
+      return berufe;
+    }
+  
+  NSLog(@"the berufe dict: %@", berufeDict);  
+    
+  for (NSString *beruf in [berufeDict allKeys])
+    {
+      NSLog(@"checking BERUF: %@", beruf);
+      NSLog(@"YIKES: %@", [berufeDict objectForKey: beruf]);
+      if ([[berufeDict objectForKey: beruf] objectForKey: @"Typen"] != nil)
+        {
+          NSLog(@"BERUF contained Typen!!!!");
+          if ([[[berufeDict objectForKey: beruf] objectForKey: @"Typen"] containsObject: characterType])
+            {
+              NSLog(@"BERUF contained characterType: %@", characterType);
+              [berufe addObject: beruf];
+            }
+        }
+      else
+        {
+          NSLog(@"BERUF din't contained Typen!!!!");        
+        }
+    }
+    
+  [berufe insertObject: @"Kein Beruf" atIndex: 0];
+  return berufe;
+}
+
+/* Unterschiedliche Charaktere können Unterschiedlicher regionaler
+   Herkunft sein, mit regionalen Talentunterschieden */
+
+- (NSArray *) getHerkuenfteForTypus: (NSString *) characterType
+{
+  NSMutableArray *herkuenfte = [[NSMutableArray alloc] init];
+  
+  if (characterType == nil)
+    {
+      NSLog(@"getHerkuenfteForTypus: characterType was NIL");
+      [herkuenfte addObject: @"Mittelreich"];
+      return herkuenfte;
+    }
+  
+  NSLog(@"the herkuenfte dict: %@", herkunftDict);  
+    
+  for (NSString *herkunft in [herkunftDict allKeys])
+    {
+      NSLog(@"checking HERKUNFT: %@", herkunft);
+      NSLog(@"YIKES: %@", [herkunftDict objectForKey: herkunft]);
+      if ([[herkunftDict objectForKey: herkunft] objectForKey: @"Typen"] != nil)
+        {
+          NSLog(@"HERKUNFT contained Typen!!!!");
+          if ([[[herkunftDict objectForKey: herkunft] objectForKey: @"Typen"] containsObject: characterType])
+            {
+              NSLog(@"HERKUNFT contained characterType: %@", characterType);
+              [herkuenfte addObject: herkunft];
+            }
+        }
+      else
+        {
+          NSLog(@"HERKUNFT din't contained Typen!!!!");        
+        }
+    }
+    
+  [herkuenfte insertObject: @"Mittelreich" atIndex: 0];
+  return herkuenfte;  
+}
+
 /* generiert Haarfarbe, abhängig vom Typus. Haarfarbe Werte
    definiert im Typus.json, aus den entsprechenden Büchern */
-
-- (NSString *) haarfarbeVonConstraintGenerieren: (NSDictionary *) haarConstraint
+- (NSString *) getHaarfarbeForTypus: (NSString *) characterType
 {
+  NSDictionary *haarConstraint = [NSDictionary dictionaryWithDictionary: [[self getTypusForTypus: characterType] objectForKey: @"Haarfarbe"]];
   NSNumber *wurf = [Utils wuerfelnMitWuerfel: @"1W20"];
-  //NSLog(@"haarConstraint: %@", haarConstraint);
-  //NSLog(@"wurf: %@", wurf);
+
   NSArray *farben = [NSArray arrayWithArray: [haarConstraint allKeys]];
   
   for (NSString *farbe in farben)
@@ -183,44 +265,54 @@ static Utils *_sharedInstance = nil;
   return @"nix";
 }
 
-/* generiert Augenfarbe, abhängig von Haarfarbe, nach Regel wie in 
-   "Mit Mantel, Schwert und Zauberstab" S. 61. Einige dort nicht
-   gelistete Haarfarben sind der Ähnlichkeit nach mit verteilt. 
-   Haarfarben definiert in Haarfarben.json */
-
-- (NSString *) augenfarbeVonHaarfarbeGenerieren: (NSString *) haarfarbe
+/* if no Augenfarbe in the Typus description, 
+   use the formula as defined in "Mit Mantel, Schwert und Zauberstab" */
+- (NSString *) getAugenfarbeForTypus: (NSString *) characterType withHaarfarbe: (NSString *) haarfarbe
 {
   NSNumber *wurf = [Utils wuerfelnMitWuerfel: @"1W20"];
-  //NSLog(@"AugenfarbenDict: %@", augenfarbenDict);
   
-  //NSLog(@"Augenfarben WURF: %@", wurf);
-  for (NSDictionary *entry in augenfarbenDict)
+  if ([[self getTypusForTypus: characterType] objectForKey: @"Augenfarbe"] == nil)
     {
-      //NSLog(@"ENTRY1: %@", entry);
-      for (NSString *farbe in [entry objectForKey: @"Haarfarben"])
+      // No special Augenfarbe defined for the characterType, we use the default calculation
+      // algorithm as defined in "Mit Mantel, Schwert und Zauberstab S. 61"
+      for (NSDictionary *entry in augenfarbenDict)
         {
-          //NSLog(@"ENTRY2: %@", farbe);
-          if ([farbe isEqualTo: haarfarbe])
+          //NSLog(@"ENTRY1: %@", entry);
+          for (NSString *farbe in [entry objectForKey: @"Haarfarben"])
             {
-              //NSLog(@"FOUND HAARFARBE: %@", haarfarbe);
-              for (NSString *af in [[entry objectForKey: @"Augenfarben"] allKeys])
+              //NSLog(@"ENTRY2: %@", farbe);
+              if ([farbe isEqualTo: haarfarbe])
                 {
-                  //NSLog(@"checking Augenfarbe: %@", [entry objectForKey: @"Augenfarben"]);
-                  if ([[[entry objectForKey: @"Augenfarben"] objectForKey: af] containsObject: wurf])
+                  //NSLog(@"FOUND HAARFARBE: %@", haarfarbe);
+                  for (NSString *af in [[entry objectForKey: @"Augenfarben"] allKeys])
                     {
-                      //NSLog(@"Augenfarbe gefunden! %@", af);
-                      return af;
+                      //NSLog(@"checking Augenfarbe: %@", [entry objectForKey: @"Augenfarben"]);
+                      if ([[[entry objectForKey: @"Augenfarben"] objectForKey: af] containsObject: wurf])
+                        {
+                          //NSLog(@"Augenfarbe gefunden! %@", af);
+                          return af;
+                        }
                     }
                 }
             }
+        }        
+    }
+  else
+    {
+      // We're dealing with a Character that has special Augenfarben constraints
+      NSDictionary *augenFarben = [NSDictionary dictionaryWithDictionary: [[self getTypusForTypus: characterType] objectForKey: @"Haarfarbe"]];
+      
+      for (NSString *farbe in [augenFarben allKeys])
+        {
+          if ([[augenFarben objectForKey: farbe] containsObject: wurf])
+            {
+              // we found the color
+              return farbe;
+            }
         }
     }
-  
   return @"nix";
 }
-
-
-
 
 /* Generiert positive Eigenschaften, wie beschrieben in
    "Mit Mantel, Schwert und Zauberstab" S. 7,
@@ -321,18 +413,139 @@ static Utils *_sharedInstance = nil;
   return [typusDict objectForKey: characterType];
 }
 
+- (NSArray *) getAllTypusKategorien
+{
+
+  NSMutableOrderedSet *kategorien = [[NSMutableOrderedSet alloc] init];
+  
+  for (NSDictionary *typus in typusDict)
+    {
+      NSLog(@"adding Kategorie for typus: %@ %@", typus, [[typusDict objectForKey: typus] objectForKey: @"Typkategorie"] );
+      [kategorien addObjectsFromArray: [[typusDict objectForKey: typus] objectForKey: @"Typkategorie"]];
+    }
+  NSLog(@"going to return!");
+  return [kategorien array];
+}
+
+- (NSArray *) getAllTypusForKategorie: (NSString *) kategorie
+{
+  NSMutableArray *typus = [[NSMutableArray alloc] init];
+    NSLog(@"here in getAllTypusForKategorie %@", kategorie);
+    if ([@"Kategorie" isEqualTo: kategorie])
+    {
+      NSLog(@"getAllTypusForKategorie: kategorie was NIL");
+      [typus addObject: @"Typus"];
+      return typus;
+    }
+  
+  for (NSString *type in [typusDict allKeys])
+    {
+      NSLog(@"checking type: %@ for kategorie: %@", type, kategorie);
+      NSLog(@"type: %@", [typusDict objectForKey: type]);
+      if ([[[typusDict objectForKey: type] objectForKey: @"Typkategorie"] containsObject: kategorie])
+        {
+          [typus addObject: type];
+        }
+    }
+  return typus;
+}
+
+- (NSMutableDictionary *) getTalenteForTypus: (NSString *) characterType
+{
+  NSMutableDictionary *talente = [[NSMutableDictionary alloc] init];
+  
+  NSArray *talentGruppen = [NSArray arrayWithArray: [[self talenteDict] allKeys]];
+//  NSLog(@"talentGruppen: %@", talentGruppen);
+  for (NSString *talentGruppe in talentGruppen)
+    {
+//      NSLog(@"Checking talentGruppe: %@", talentGruppe);
+      if ([@"Kampftechniken" isEqualTo: talentGruppe])
+        {
+//          NSLog(@"Talentgruppe: %@", [[self talenteDict] objectForKey: talentGruppe]);
+//          NSLog(@"Steigern: %@", [[[self talenteDict] objectForKey: talentGruppe] objectForKey: @"Steigern"]);
+
+          NSString *steigern = [NSString stringWithFormat: @"%@", [[[self talenteDict] objectForKey: talentGruppe] objectForKey: @"Steigern"]];
+          NSString *versuche = [NSString stringWithFormat: @"%li", [steigern integerValue] * 3];
+//          NSLog(@"Steigern: %@", steigern);
+         
+          for (NSString *key in [[self talenteDict] objectForKey: talentGruppe])
+            {
+              NSString *waffentyp;
+              NSString *startwert;
+              if ([@"Steigern" isEqualTo: key])
+                {
+//                  NSLog(@"Found Steigern!!!, jumping over!!!!");
+                  continue;
+                }
+              else
+                {
+//                  NSDictionary *tG = [NSDictionary dictionaryWithDictionary: [[self talenteDict] objectForKey: talentGruppe]];
+                  //NSLog(@"tG: %@", tG);
+                  waffentyp = [NSString stringWithFormat: @"%@", [[[[self talenteDict] objectForKey: talentGruppe] objectForKey: key] objectForKey: @"Waffentyp"]];
+                  startwert = [NSString stringWithFormat: @"%@", [[[[[self talenteDict] objectForKey: talentGruppe] objectForKey: key] objectForKey: @"Startwerte"] objectForKey: characterType]];
+                }
+//              NSLog(@"Waffentyp: %@ Startwert: %@, key: %@", waffentyp, startwert, key);  
+//              NSDictionary *technik = [NSDictionary dictionaryWithObject: @{@"Startwert": startwert, @"Steigern": steigern } forKey: key];
+//              NSLog(@"Technik: %@", technik);
+                [talente setValue: @{@"Startwert": startwert, @"Steigern": steigern, @"Versuche": versuche} forKeyHierarchy: @[talentGruppe, waffentyp, key]];
+//              NSLog(@"talente: %@", talente);
+            } 
+        }
+      else
+        {
+          //NSLog(@"talentGruppe: %@", talentGruppe);
+          //NSLog(@"Talentgruppe: %@", [[self talenteDict] objectForKey: talentGruppe]);
+          //NSLog(@"Steigern: %@", [[[self talenteDict] objectForKey: talentGruppe] objectForKey: @"Steigern"]);
+
+          NSString *steigern = [NSString stringWithFormat: @"%@", [[[self talenteDict] objectForKey: talentGruppe] objectForKey: @"Steigern"]];
+          NSString *versuche = [NSString stringWithFormat: @"%li", [steigern integerValue] * 3];
+          //NSLog(@"Steigern: %@", steigern);   
+          for (NSString *key in [[self talenteDict] objectForKey: talentGruppe])
+            {
+              NSArray *probe;
+              NSString *startwert;
+              if ([@"Steigern" isEqualTo: key])
+                {
+                  //NSLog(@"Found Steigern!!!, jumping over!!!!");
+                  continue;
+                }
+              else
+                {
+//                  NSDictionary *tG = [NSDictionary dictionaryWithDictionary: [[self talenteDict] objectForKey: talentGruppe]];
+                  //NSLog(@"tG: %@", tG);
+                  probe = [NSArray arrayWithArray: [[[[self talenteDict] objectForKey: talentGruppe] objectForKey: key] objectForKey: @"Probe"]];
+                  //NSLog(@"PROBE: %@", probe);
+                  startwert = [NSString stringWithFormat: @"%@", [[[[[self talenteDict] objectForKey: talentGruppe] objectForKey: key] objectForKey: @"Startwerte"] objectForKey: characterType]];
+                }
+                [talente setValue: @{@"Startwert": startwert, @"Probe": probe, @"Steigern": steigern, @"Versuche": versuche} forKeyHierarchy: @[talentGruppe, key]];
+//              NSLog(@"talente: %@", talente);
+            }       
+        }
+    }
+//  NSLog(@"talente: %@", talente);
+  return talente;
+}
+
 - (NSDictionary *) famHerkunftGenerieren: (NSString *)characterType
 {
-  NSNumber *wurf = [Utils wuerfelnMitWuerfel: @"1W20"];
-  //NSLog(@"haarConstraint: %@", haarConstraint);
-  //NSLog(@"wurf: %@", wurf);
+
+  NSString *wuerfel = [[[self getTypusForTypus: characterType] objectForKey: @"Herkunft"] objectForKey: @"Würfel"];
+  NSNumber *wurf = [Utils wuerfelnMitWuerfel: wuerfel];
+  NSLog(@"wurf: %@", wurf);
+
   NSDictionary *herkuenfteDict = [NSDictionary dictionaryWithDictionary: [[self getTypusForTypus: characterType] objectForKey: @"Herkunft"]];
   NSArray *herkuenfteArr = [NSArray arrayWithArray: [herkuenfteDict allKeys]];
   NSMutableDictionary *retVal = [[NSMutableDictionary alloc] init];
   
   for (NSString *herkunft in herkuenfteArr)
     {
-      if ([[[herkuenfteDict objectForKey: herkunft] objectForKey: @"W20"] containsObject: wurf])
+      NSLog(@"Checking Herkunft: %@", herkunft);
+      if ([@"Würfel" isEqualTo: herkunft])
+        {
+          continue;
+        }
+      
+      if ([[[herkuenfteDict objectForKey: herkunft] objectForKey: wuerfel] containsObject: wurf])
         {
           NSLog(@"Herkunft gefunden: wurf: %@ herkunft: %@", wurf, herkunft);
           [retVal setObject: herkunft forKey:@"Stand"];
@@ -402,5 +615,123 @@ static Utils *_sharedInstance = nil;
   int gewicht = [[[typusDict objectForKey: characterType] objectForKey: @"Gewicht"] intValue];
   return [NSString stringWithFormat: @"%u", (gewicht + [groesse intValue])];
 }
+
+// Creates string i.e. MU/KK/FF
+- (NSString *) getProbeStringFromProbeDict: (NSArray *) probe
+{
+  return [NSString stringWithFormat: @"%@/%@%@",
+                   [probe objectAtIndex: 0],
+                   [probe objectAtIndex: 1],
+                   [probe objectAtIndex: 2]];
+}
+
+
+- (NSMutableDictionary *) getTalentDictFromTalenteDict: (NSMutableDictionary *) dict forTalent: (NSString *) talent
+{
+  //NSLog(@"looking for talent: %@ in dict: %@", talent, dict);
+  return [dict findMutableObjectForKey: talent];
+}
+
+
+
+- (void) apply: (NSString *) what toCharakter: (Charakter *) charakter
+{
+  NSMutableDictionary *basisWerte = [[NSMutableDictionary alloc] init];
+  NSMutableDictionary *talente = [[NSMutableDictionary alloc] init];
+  if ([@"Goettergeschenke" isEqualTo: what])
+    {
+      NSLog(@"applying: %@", what);
+      NSLog(@"charakter: %@", charakter);
+      basisWerte = [[[self goetterDict] objectForKey: [charakter gottheit]] objectForKey: @"Basiswerte"];
+      talente = [[[self goetterDict] objectForKey: [charakter gottheit]] objectForKey: @"Talente"];
+      NSLog(@"basisWerte: %@", basisWerte);
+       
+    }
+  else if ([@"Herkunft" isEqualTo: what])
+    {
+      NSLog(@"applying: %@", what);
+      NSLog(@"HERKUNFT: %@", [charakter herkunft]);
+      NSLog(@"TALENTE DICT %@", [self herkunftDict]);
+      talente = [[[self herkunftDict] objectForKey: [charakter herkunft]] objectForKey: @"Talente"]; 
+    }
+  else
+    {
+      NSLog(@"Don't know how to apply: %@", what);
+    }
+  // positive Eigenschaften
+  for (NSString *field in @[ @"MU", @"KL", @"IN", @"CH", @"FF", @"GE", @"KK" ])
+    {
+      if ([[basisWerte allKeys] containsObject: field])
+        {
+          NSLog(@"setting positive field: %@", field);
+          NSLog(@"charakter positiveEigenschaften BEFORE: %@", [charakter positiveEigenschaften]);
+          [charakter setValue: [NSNumber numberWithInteger: [[charakter valueForKeyPath: [NSString stringWithFormat: @"positiveEigenschaften.%@", field]] integerValue]  + 
+                               [[basisWerte objectForKey: field] integerValue]]
+                   forKeyPath: [NSString stringWithFormat: @"positiveEigenschaften.%@", field]];
+          NSLog(@"charakter positiveEigenschaften AFTER: %@", [charakter positiveEigenschaften]);                       
+        }
+    }
+  // negative Eigenschaften
+  for (NSString *field in @[ @"AG", @"HA", @"RA", @"TA", @"NG", @"GG", @"JZ" ])
+    {
+      if ([[basisWerte allKeys] containsObject: field])
+        {
+          NSLog(@"setting negative field: %@", field);            
+          [charakter setValue: [NSNumber numberWithInteger: [[charakter valueForKeyPath: [NSString stringWithFormat: @"negativeEigenschaften.%@", field]] integerValue]  + 
+                               [[basisWerte objectForKey: field] integerValue]]
+                   forKeyPath: [NSString stringWithFormat: @"negativeEigenschaften.%@", field]];
+        }
+    }
+
+  // Talente
+  NSLog(@"TALENTE VORHER: %@", [charakter talente]);
+  NSLog(@"ALLE TALENTE: %@", [talente allKeys]);
+  for (NSString *talentGruppe in [talente allKeys])
+    {
+      if ([talentGruppe isEqualTo: @"Kampftechniken"])
+        {
+          NSLog(@"TALENTGRUPPE: %@", talentGruppe);
+          for (NSString *talentSubGruppe in [talente objectForKey: talentGruppe])
+            {
+              NSLog(@"TALENTSUBGRUPPE: %@", talentSubGruppe);
+              for (NSString *talent in [[talente objectForKey: talentGruppe] objectForKey: talentSubGruppe])
+                {
+                  NSLog(@"THE GESCHENK TALENT: %@", talent);
+                  NSLog(@"BEFORE GOETTER: Talentwert: %@", [charakter valueForKeyPath: [NSString stringWithFormat: @"talente.%@.%@.%@", talentGruppe, talentSubGruppe, talent]]);
+                  NSInteger geschenk = [[charakter valueForKeyPath: [NSString stringWithFormat: @"talente.%@.%@.%@.Startwert", talentGruppe, talentSubGruppe, talent]] integerValue] + 
+                                                                    [[[[talente objectForKey: talentGruppe] objectForKey: talentSubGruppe] objectForKey: talent] integerValue];
+                  NSLog(@"THE GESCHENK: %li", geschenk);
+                  NSMutableDictionary *currentTalent = [NSMutableDictionary dictionaryWithDictionary: [charakter valueForKeyPath: [NSString stringWithFormat: @"talente.%@.%@.%@", talentGruppe, talentSubGruppe, talent]]];
+                  NSLog(@"CURRENT TALENT BEFORE: %@", currentTalent);
+                  [currentTalent setObject: [NSString stringWithFormat: @"%li", geschenk] forKey: @"Startwert"];
+                  NSLog(@"CURRENT TALENT NOWISH: %@", currentTalent);
+                  [charakter setValue: currentTalent
+                           forKeyPath: [NSString stringWithFormat: @"talente.%@.%@.%@", talentGruppe, talentSubGruppe, talent]];
+                  NSLog(@"AFTER GOETTER: %@", [charakter valueForKeyPath: [NSString stringWithFormat: @"talente.%@.%@.%@.Startwert", talentGruppe, talentSubGruppe, talent]]);                
+                }
+            }
+        }
+      else
+        {
+          NSLog(@"TALENTGRUPPE: %@", talentGruppe);
+          for (NSString *talent in [[talente objectForKey: talentGruppe] allKeys])
+            {
+              NSLog(@"Updating Goetter Talent: %@", talent);
+              NSLog(@"BEFORE GOETTER: Talentwert: %@ Geschenk: %@", [charakter valueForKeyPath: [NSString stringWithFormat: @"talente.%@.%@.Startwert", talentGruppe, talent]],[[talente objectForKey: talentGruppe] objectForKey: talent]);
+              NSInteger geschenk = [[charakter valueForKeyPath: [NSString stringWithFormat: @"talente.%@.%@.Startwert", talentGruppe, talent]] integerValue] + [[[talente objectForKey: talentGruppe] objectForKey: talent] integerValue];
+              NSLog(@"XXXXXXX %@", [charakter valueForKeyPath: [NSString stringWithFormat: @"talente.%@.%@", talentGruppe, talent]]);
+              NSMutableDictionary *currentTalent = [NSMutableDictionary dictionaryWithDictionary: [charakter valueForKeyPath: [NSString stringWithFormat: @"talente.%@.%@", talentGruppe, talent]]];
+              [currentTalent setObject: [NSString stringWithFormat: @"%li", geschenk] forKey: @"Startwert"];
+//              [aktiverCharakter setValue: [NSString stringWithFormat: @"%li", geschenk]
+              [charakter setValue: currentTalent              
+                       forKeyPath: [NSString stringWithFormat: @"talente.%@.%@", talentGruppe, talent]];
+              NSLog(@"AFTER GOETTER: %@", [charakter valueForKeyPath: [NSString stringWithFormat: @"talente.%@.%@.Startwert", talentGruppe, talent]]);                              
+            }
+        }
+    }
+  NSLog(@"TALENTE NACHER: %@", [charakter talente]);       
+}
+
+
 
 @end

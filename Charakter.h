@@ -27,7 +27,13 @@
 
 #import <Foundation/Foundation.h>
 
-@interface Charakter : NSObject <NSCoding>
+@class Utils;
+
+@interface Charakter : NSObject <NSCoding> {
+  Utils *utils;
+}
+@property (nonatomic) NSInteger stufe;
+@property (nonatomic) NSInteger abenteuerPunkte;
 @property (nonatomic) NSString *name;
 @property (nonatomic) NSString *titel;
 @property (nonatomic) NSString *typus;
@@ -48,11 +54,27 @@
 @property (nonatomic) NSInteger le;
 @property (nonatomic) NSInteger ae;
 @property (nonatomic) NSInteger ke;
-@property (nonatomic) NSDictionary *positiveEigenschaften;
-@property (nonatomic) NSDictionary *negativeEigenschaften;
+@property (nonatomic) NSInteger mrBonus;
+@property (nonatomic) NSMutableDictionary *positiveEigenschaften;
+@property (nonatomic) NSMutableDictionary *negativeEigenschaften;
+@property (nonatomic) NSMutableDictionary *talente;
+@property (nonatomic) NSMutableDictionary *steigerungsTalente;
+@property (readonly) NSInteger atBasiswert;
+@property (readonly) NSInteger paBasiswert;
+@property (readonly) NSInteger fkBasiswert;
+@property (readonly) NSInteger ausweichenBasiswert;
+@property (readonly) NSInteger magieResistenz;
+@property (readonly) NSInteger behinderung;
+@property (readonly) NSInteger ausdauer;
+@property (readonly) NSInteger tragkraft;
+@property (readonly) NSInteger last;
 
 
+- (void) steigereTalent: (NSString *) talent;
 @end
+
+
+
 
 #endif // _CHARAKTER_H_
 

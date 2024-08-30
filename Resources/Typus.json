@@ -1,7 +1,6 @@
 {
   "Magier": {
-    "Berufmodifikator": false,
-    "Herkunftmodifikator": true,
+    "Typkategorie": [ "Mensch", "Magiebegabt" ],
     "Magiebegabt": true,
     "Eigenschaften": {
       "KL": "13+",
@@ -10,17 +9,36 @@
       "AG": "4-"
     },
     "Herkunft": {
+      "Würfel": "1W20",
       "arm": {
-        "W20": [ 1, 2, 3, 4 ]
+        "1W20": [ 1, 2, 3, 4 ],
+        "Eltern": {
+          "verwaist": [ 1 ],
+          "Stipendium": [ 2, 3 ],
+          "Elf-Mensch Verbindung": [ 4 ]
+        }
       },
       "mittelständisch": {
-        "W20": [ 5, 6, 7, 8, 9, 10, 11, 12, 13 ]
+        "1W20": [ 5, 6, 7, 8, 9, 10, 11, 12, 13 ],
+        "Eltern": {
+          "Handwerker": [ 5, 6, 7, 8 ],
+          "Reisende Magier": [ 9, 10, 11 ],
+          "Einfache Geweihte": [ 12, 13 ] 
+        }
       },
       "reich": {
-        "W20": [ 15, 16, 17, 18, 19 ]
+        "1W20": [ 15, 16, 17, 18, 19 ],
+        "Eltern": {
+          "Hohe Geweihte": [ 15 ],
+          "Bekannte Magier": [ 16, 17 ],
+          "Reiche Kaufleute": [ 18, 19 ] 
+        }
       },
       "adelig": {
-        "W20": [ 20 ]
+        "1W20": [ 20 ],
+        "Eltern": {
+          "Landadel": [ 20 ]
+        }
       }
     },
     "Haarfarbe": {
@@ -33,10 +51,11 @@
       "albino": [ 20 ]
     },
     "Geschlecht": [ "männlich", "weiblich", "divers" ],
-    "Körpergröße": [ "160", "1W20", "3W6" ],
+    "Körpergröße": [ "160", "11W20", "3W6" ],
     "Gewicht": -110,
     "LE": 25,
     "AE": 30,
+    "KE": 0,
     "MRBonus": 2,
     "Stufenanstieg": {
       "LE_AE": "1W6",
@@ -51,8 +70,7 @@
     }
   },
   "Scharlatan": {
-    "Berufmodifikator": true,
-    "Herkunftmodifikator": false,
+    "Typkategorie": [ "Mensch", "Magiebegabt" ],
     "Magiebegabt": true,
     "Eigenschaften": {
       "KL": "12+",
@@ -62,25 +80,47 @@
       "AG": "4-"
     },
     "Herkunft": {
+      "Würfel": "1W20",
       "unbekannt": {
-        "W20": [ 1, 2 ]
+        "1W20": [ 1, 2 ],
+        "Eltern": {
+          "Entflohene Sklaven": [ 1 ],
+          "Findelkind": [ 2 ]
+        }
       },
       "arm": {
-        "W20": [ 3, 4, 5, 6, 7 ]
+        "1W20": [ 3, 4, 5, 6, 7 ],
+        "Eltern": {
+          "erfolglose Gaukler": [ 3 ],
+          "Streuner": [ 4 ],
+          "Söldner": [ 5 ],
+          "Schelme": [ 6 ],
+          "arme Dörfler": [ 7 ]
+        }
       },
       "mittelständisch": {
-        "W20": [ 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18 ]
+        "1W20": [ 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18 ],
+        "Eltern": {
+          "Angesehene Gaukler": [ 8, 9, 10, 11 ],
+          "Angesehene Schausteller": [ 12, 13 ,14 ],
+          "Jahrmarktzauberer": [ 15, 16, 17, 18 ] 
+        }
       },
       "reich": {
-        "W20": [ 19, 20 ]
+        "1W20": [ 19, 20 ],
+        "Eltern": {
+          "Hofartisten/Magier": [ 19 ],
+          "reiche Kaufleute": [ 20 ]
+        }
       }
     },
     "Haarfarbe": { },
     "Geschlecht": [ "männlich", "weiblich", "divers" ],
-    "Körpergröße": [ "165", "1W20", "1W6"],
+    "Körpergröße": [ "165", "11W20", "1W6"],
     "Gewicht": -110,
     "LE": 25,
     "AE": 25,
+    "KE": 0,
     "MRBonus": 2,
     "Stufenanstieg": {
       "LE_AE": "1W6 + 1",
@@ -91,8 +131,7 @@
     }
   },
   "Hexe": {
-    "Berufmodifikator": true,
-    "Herkunftmodifikator": false,
+    "Typkategorie": [ "Mensch", "Magiebegabt" ],
     "Magiebegabt": true,
     "Eigenschaften": {
       "MU": "12+",
@@ -100,16 +139,25 @@
       "HA": "4-"
     },
     "Herkunft": {
-      "Hexenei": { "W20": [ 1 ] },
+      "Würfel": "1W20",
+      "Hexenei": { 
+        "1W20": [ 1 ],
+        "Eltern": {
+           "Hexenei": [ 1 ]
+        }
+      },
       "Kind normaler Eltern": {
-        "W20": [ 2, 3 ], 
+        "1W20": [ 2, 3 ], 
         "Eltern": {
           "Findelkind": [ 1, 2 ],
           "von Eltern verkauft": [ 3, 4, 5, 6 ]
         }
       },
       "Kind einer Hexe": {
-        "W20": [ 4, 5, 6, 7, 8, 9, 10, 11, 12 ,13, 14, 15, 16, 17, 18, 19, 20 ]
+        "1W20": [ 4, 5, 6, 7, 8, 9, 10, 11, 12 ,13, 14, 15, 16, 17, 18, 19, 20 ],
+        "Eltern": {
+          "Hexen": [ 4, 5, 6, 7, 8, 9, 10, 11, 12 ,13, 14, 15, 16, 17, 18, 19, 20 ]
+        }
       }
     },
     "Haarfarbe": {
@@ -122,10 +170,11 @@
       "weißblond": [ 20 ]
     },
     "Geschlecht": [ "männlich", "weiblich", "divers" ],
-    "Körpergröße": [ "150", "1W20", "3W6"],
+    "Körpergröße": [ "150", "11W20", "3W6"],
     "Gewicht": -115,
     "LE": 25,
     "AE": 25,
+    "KE": 0,
     "MRBonus": 2,
     "Stufenanstieg": {
       "LE_AE": "1W6 + 2",
@@ -137,8 +186,7 @@
     }
   },
   "Druide": {
-    "Berufmodifikator": true,
-    "Herkunftmodifikator": false,
+    "Typkategorie": [ "Mensch", "Magiebegabt" ],
     "Magiebegabt": true,
     "Eigenschaften": {
       "MU": "13+",
@@ -146,9 +194,10 @@
       "TA": "4-"
     },
     "Herkunft": {
-      "unbekannt": { "W20": [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ] },
+      "Würfel": "1W20",
+      "unbekannt": { "1W20": [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ] },
       "arm": {
-        "W20": [ 11, 12, 13, 14, 15, 16 ],
+        "1W20": [ 11, 12, 13, 14, 15, 16 ],
         "Eltern": {
           "Sklave": [ 11, 12 ],
           "Bettler": [ 13, 14 ],
@@ -157,14 +206,14 @@
         }
       },
       "mittelständisch": {
-        "W20": [ 17, 18, 19 ], 
+        "1W20": [ 17, 18, 19 ], 
         "Eltern": {
           "Druiden": [ 17, 18 ],
           "Bürger": [ 19 ]
         }
       },
       "reich": {
-        "W20": [ 20 ], 
+        "1W20": [ 20 ], 
         "Eltern": {
           "Kaufleute/Druiden": [ 20 ]
         }
@@ -179,10 +228,11 @@
       "kahlköpfig": [ 19, 20 ]
     },
     "Geschlecht": [ "männlich", "weiblich", "divers" ],
-    "Körpergröße": [ "150", "1W20", "3W6"],
+    "Körpergröße": [ "150", "11W20", "3W6"],
     "Gewicht": -110,
     "LE": 30,
     "AE": 25,
+    "KE": 0,
     "MRBonus": 2,
     "Stufenanstieg": {
       "LE_AE": "1W6 + 2",
@@ -194,15 +244,22 @@
     }
   },
   "Schelm": {
-    "Berufmodifikator": true,
-    "Herkunftmodifikator": false,
+    "Typkategorie": [ "Mensch", "Magiebegabt" ],
     "Magiebegabt": true,
     "Eigenschaften": {
       "CH": "13+",
       "GE": "13+",
       "HA": "4-"
     },
-    "Herkunft": { },
+    "Herkunft": {
+      "Würfel": "1W20",
+      "arm": {
+        "1W20": [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 ,13, 14, 15, 16, 17, 18, 19, 20 ],
+        "Eltern": {
+          "Wechselbalg": [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 ,13, 14, 15, 16, 17, 18, 19, 20 ]
+        }
+      }
+    },
     "Haarfarbe": {
       "schwarz": [ 1, 2 ],
       "nußbraun": [ 3, 4 ],
@@ -212,10 +269,11 @@
       "weizenblond": [ 18, 19, 20 ]
     },
     "Geschlecht": [ "männlich", "weiblich", "divers" ],
-    "Körpergröße": [ "148","1W20", "1W6"],
+    "Körpergröße": [ "148","11W20", "1W6"],
     "Gewicht": -110,
     "LE": 30,
     "AE": 25,
+    "KE": 0,
     "MRBonus": 3,
     "Stufenanstieg": {
       "LE_AE": "1W6 + 2",
@@ -227,21 +285,23 @@
     }
   },
   "Tänzerin": {
+    "Typkategorie": [ "Mensch", "Magiebegabt" ],
     "Eigenschaften": {
       "CH": "13+",
       "GE": "12+",
       "GG": "4+"
     },
     "Herkunft": {
+      "Würfel": "1W20",
       "arm": {
-        "W20": [ 1, 2, 3, 4, 5, 6, 7 ],
+        "1W20": [ 1, 2, 3, 4, 5, 6, 7 ],
         "Eltern": {
           "Moha Sklaven": [ 1, 2, 3, 4 ],
           "andere Sklaven": [ 5, 6, 7 ]
         }
       },
       "mittelständisch": {
-        "W20": [ 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20 ], 
+        "1W20": [ 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20 ], 
         "Eltern": {
           "Handwerker": [ 8, 9, 10, 11, 12, 13, 14 ],
           "Händler": [ 15, 16, 17, 18, 19 ],
@@ -260,6 +320,7 @@
     "Gewicht": -110,
     "LE": 30,
     "AE": 15,
+    "KE": 0,
     "MRBonus": 0,
     "Stufenanstieg": {
       "LE_AE": "1W6",
@@ -270,9 +331,83 @@
       "ZS_zu_AE": { }
     }
   },
+  "Angroschpriester": {
+    "Typkategorie": [ "Zwerg" ],
+    "Magiebegabt": false,
+    "Eigenschaften": {
+      "MU": "12+",
+      "IN": "12+",
+      "RA": "2-",
+      "HA": "7+"
+    },
+    "Herkunft": { 
+      "Würfel": "2W6",
+      "unfrei": {
+        "2W6": [ 2 ],
+        "Eltern": {
+          "Schuldknechte": [ 2 ]
+        }
+      },
+      "arm": {
+        "2W6": [ 3, 4 ],
+        "Eltern": {
+          "Angestellte": [ 3, 4 ]
+        }
+      },
+      "mittelständisch": {
+        "2W6": [ 5, 6, 7, 8 ],
+        "Eltern": {
+          "Handwerker": [ 5, 6, 7, 8 ]
+        }
+      },
+      "reich": {
+        "2W6": [ 9, 10, 11 ],
+        "Eltern": {
+          "Kaufleute": [ 9, 10, 11 ]
+        }
+      },
+      "adelig": {
+        "2W6": [ 12 ],
+        "Eltern": {
+          "Bergkönig/Stammeskönig": [ 12 ]
+        }
+      }
+    },
+    "Haarfarbe": {
+      "blond": [ 1, 2, 3, 4, 5 ],
+      "rot": [ 6, 7, 8, 9, 10, 11 ],
+      "weiß": [ 12, 13 ],
+      "braun": [ 14, 15, 16 ],
+      "schwarz": [ 17, 18, 19, 20 ]
+    },
+    "Augenfarbe": {
+      "schwarz": [ 1, 2, 3 ],
+      "braun": [ 4, 5, 6 ],
+      "grün": [ 7, 8 ],
+      "blau": [ 9, 10, 11 ],
+      "stahlgrau": [ 12, 13, 14, 15 ],
+      "felsgrau": [ 16, 17 ],
+      "silbergrau": [ 18, 19 ],
+      "goldgelb": [ 20 ]
+    },
+    "Geschlecht": [ "männlich", "weiblich", "divers" ],
+    "Körpergröße": [ "128", "2W6" ],
+    "Gewicht": -70,
+    "LE": 40,
+    "AE": 0,
+    "KE": 0,
+    "MRBonus": 3,
+    "Stufenanstieg": {
+      "LE_AE": "1W6",
+      "MaxAE": 0,
+      "TS": 30,
+      "ZS": 0,
+      "Egal": 0,
+      "ZS_zu_AE": { }
+    }
+  },
   "Geode": {
-    "Berufmodifikator": false,
-    "Herkunftmodifikator": false,
+    "Typkategorie": [ "Zwerg", "Magiebegabt" ],
     "Magiebegabt": true,
     "Eigenschaften": {
       "IN": "12+",
@@ -281,13 +416,62 @@
       "GG": "3-"
     },
     "Schule": [ "Diener Sumus", "Herr der Erde" ],
-    "Herkunft": { },
-    "Haarfarbe": { },
+    "Herkunft": { 
+      "Würfel": "2W6",
+      "unfrei": {
+        "2W6": [ 2 ],
+        "Eltern": {
+          "Schuldknechte": [ 2 ]
+        }
+      },
+      "arm": {
+        "2W6": [ 3, 4 ],
+        "Eltern": {
+          "Angestellte": [ 3, 4 ]
+        }
+      },
+      "mittelständisch": {
+        "2W6": [ 5, 6, 7, 8 ],
+        "Eltern": {
+          "Handwerker": [ 5, 6, 7, 8 ]
+        }
+      },
+      "reich": {
+        "2W6": [ 9, 10, 11 ],
+        "Eltern": {
+          "Kaufleute": [ 9, 10, 11 ]
+        }
+      },
+      "adelig": {
+        "2W6": [ 12 ],
+        "Eltern": {
+          "Bergkönig/Stammeskönig": [ 12 ]
+        }
+      }
+    },
+    "Haarfarbe": {
+      "blond": [ 1, 2, 3, 4, 5 ],
+      "rot": [ 6, 7, 8, 9, 10, 11 ],
+      "weiß": [ 12, 13 ],
+      "braun": [ 14, 15, 16 ],
+      "schwarz": [ 17, 18, 19, 20 ]
+    },
+    "Augenfarbe": {
+      "schwarz": [ 1, 2, 3 ],
+      "braun": [ 4, 5, 6 ],
+      "grün": [ 7, 8 ],
+      "blau": [ 9, 10, 11 ],
+      "stahlgrau": [ 12, 13, 14, 15 ],
+      "felsgrau": [ 16, 17 ],
+      "silbergrau": [ 18, 19 ],
+      "goldgelb": [ 20 ]
+    },
     "Geschlecht": [ "männlich", "weiblich", "divers" ],
-    "Körpergröße": [],
-    "Gewicht": "",
+    "Körpergröße": [ "128", "2W6" ],
+    "Gewicht": -70,
     "LE": 40,
     "AE": 15,
+    "KE": 0,
     "MRBonus": 3,
     "Stufenanstieg": {
       "LE_AE": "2 * 1W6",
@@ -298,9 +482,233 @@
       "ZS_zu_AE": { }
     }
   },
+  "Kämpfer": {
+    "Typkategorie": [ "Zwerg" ],
+    "Magiebegabt": false,
+    "Eigenschaften": {
+      "MU": "12+",
+      "KK": "13+",
+      "GG": "7+",
+      "AG": "4+"
+    },
+    "Herkunft": { 
+      "Würfel": "2W6",
+      "unfrei": {
+        "2W6": [ 2 ],
+        "Eltern": {
+          "Schuldknechte": [ 2 ]
+        }
+      },
+      "arm": {
+        "2W6": [ 3, 4 ],
+        "Eltern": {
+          "Angestellte": [ 3, 4 ]
+        }
+      },
+      "mittelständisch": {
+        "2W6": [ 5, 6, 7, 8 ],
+        "Eltern": {
+          "Handwerker": [ 5, 6, 7, 8 ]
+        }
+      },
+      "reich": {
+        "2W6": [ 9, 10, 11 ],
+        "Eltern": {
+          "Kaufleute": [ 9, 10, 11 ]
+        }
+      },
+      "adelig": {
+        "2W6": [ 12 ],
+        "Eltern": {
+          "Bergkönig/Stammeskönig": [ 12 ]
+        }
+      }
+    },
+    "Haarfarbe": {
+      "blond": [ 1, 2, 3, 4, 5 ],
+      "rot": [ 6, 7, 8, 9, 10, 11 ],
+      "weiß": [ 12, 13 ],
+      "braun": [ 14, 15, 16 ],
+      "schwarz": [ 17, 18, 19, 20 ]
+    },
+    "Augenfarbe": {
+      "schwarz": [ 1, 2, 3 ],
+      "braun": [ 4, 5, 6 ],
+      "grün": [ 7, 8 ],
+      "blau": [ 9, 10, 11 ],
+      "stahlgrau": [ 12, 13, 14, 15 ],
+      "felsgrau": [ 16, 17 ],
+      "silbergrau": [ 18, 19 ],
+      "goldgelb": [ 20 ]
+    },
+    "Geschlecht": [ "männlich", "weiblich", "divers" ],
+    "Körpergröße": [ "128", "2W6" ],
+    "Gewicht": -70,
+    "LE": 40,
+    "AE": 0,
+    "KE": 0,
+    "MRBonus": 3,
+    "Stufenanstieg": {
+      "LE_AE": "1W6",
+      "MaxAE": 0,
+      "TS": 30,
+      "ZS": 0,
+      "Egal": 0,
+      "ZS_zu_AE": { }
+    }
+  },
+  "Kavalier": {
+    "Typkategorie": [ "Zwerg" ],
+    "Magiebegabt": false,
+    "Eigenschaften": {
+      "FF": "12+",
+      "CH": "12+",
+      "NG": "7+",
+      "GG": "6-"
+    },
+    "Herkunft": { 
+      "Würfel": "2W6",
+      "unfrei": {
+        "2W6": [ 2 ],
+        "Eltern": {
+          "Schuldknechte": [ 2 ]
+        }
+      },
+      "arm": {
+        "2W6": [ 3, 4 ],
+        "Eltern": {
+          "Angestellte": [ 3, 4 ]
+        }
+      },
+      "mittelständisch": {
+        "2W6": [ 5, 6, 7, 8 ],
+        "Eltern": {
+          "Handwerker": [ 5, 6, 7, 8 ]
+        }
+      },
+      "reich": {
+        "2W6": [ 9, 10, 11 ],
+        "Eltern": {
+          "Kaufleute": [ 9, 10, 11 ]
+        }
+      },
+      "adelig": {
+        "2W6": [ 12 ],
+        "Eltern": {
+          "Bergkönig/Stammeskönig": [ 12 ]
+        }
+      }
+    },
+    "Haarfarbe": {
+      "blond": [ 1, 2, 3, 4, 5 ],
+      "rot": [ 6, 7, 8, 9, 10, 11 ],
+      "weiß": [ 12, 13 ],
+      "braun": [ 14, 15, 16 ],
+      "schwarz": [ 17, 18, 19, 20 ]
+    },
+    "Augenfarbe": {
+      "schwarz": [ 1, 2, 3 ],
+      "braun": [ 4, 5, 6 ],
+      "grün": [ 7, 8 ],
+      "blau": [ 9, 10, 11 ],
+      "stahlgrau": [ 12, 13, 14, 15 ],
+      "felsgrau": [ 16, 17 ],
+      "silbergrau": [ 18, 19 ],
+      "goldgelb": [ 20 ]
+    },
+    "Geschlecht": [ "männlich", "weiblich", "divers" ],
+    "Körpergröße": [ "128", "2W6" ],
+    "Gewicht": -70,
+    "LE": 40,
+    "AE": 0,
+    "KE": 0,
+    "MRBonus": 3,
+    "Stufenanstieg": {
+      "LE_AE": "1W6",
+      "MaxAE": 0,
+      "TS": 30,
+      "ZS": 0,
+      "Egal": 0,
+      "ZS_zu_AE": { }
+    }
+  },
+  "Wandergeselle": {
+    "Typkategorie": [ "Zwerg" ],
+    "Magiebegabt": false,
+    "Eigenschaften": {
+      "FF": "12+",
+      "KK": "12+",
+      "NG": "4+",
+      "RA": "5-"
+    },
+    "Herkunft": { 
+      "Würfel": "2W6",
+      "unfrei": {
+        "2W6": [ 2 ],
+        "Eltern": {
+          "Schuldknechte": [ 2 ]
+        }
+      },
+      "arm": {
+        "2W6": [ 3, 4 ],
+        "Eltern": {
+          "Angestellte": [ 3, 4 ]
+        }
+      },
+      "mittelständisch": {
+        "2W6": [ 5, 6, 7, 8 ],
+        "Eltern": {
+          "Handwerker": [ 5, 6, 7, 8 ]
+        }
+      },
+      "reich": {
+        "2W6": [ 9, 10, 11 ],
+        "Eltern": {
+          "Kaufleute": [ 9, 10, 11 ]
+        }
+      },
+      "adelig": {
+        "2W6": [ 12 ],
+        "Eltern": {
+          "Bergkönig/Stammeskönig": [ 12 ]
+        }
+      }
+    },
+    "Haarfarbe": {
+      "blond": [ 1, 2, 3, 4, 5 ],
+      "rot": [ 6, 7, 8, 9, 10, 11 ],
+      "weiß": [ 12, 13 ],
+      "braun": [ 14, 15, 16 ],
+      "schwarz": [ 17, 18, 19, 20 ]
+    },
+    "Augenfarbe": {
+      "schwarz": [ 1, 2, 3 ],
+      "braun": [ 4, 5, 6 ],
+      "grün": [ 7, 8 ],
+      "blau": [ 9, 10, 11 ],
+      "stahlgrau": [ 12, 13, 14, 15 ],
+      "felsgrau": [ 16, 17 ],
+      "silbergrau": [ 18, 19 ],
+      "goldgelb": [ 20 ]
+    },
+    "Geschlecht": [ "männlich", "weiblich", "divers" ],
+    "Körpergröße": [ "128", "2W6" ],
+    "Gewicht": -70,
+    "LE": 40,
+    "AE": 0,
+    "KE": 0,
+    "MRBonus": 3,
+    "Stufenanstieg": {
+      "LE_AE": "1W6",
+      "MaxAE": 0,
+      "TS": 30,
+      "ZS": 0,
+      "Egal": 0,
+      "ZS_zu_AE": { }
+    }
+  },
   "Halbelf": {
-    "Berufmodifikator": true,
-    "Herkunftmodifikator": false,
+    "Typkategorie": [ "Elf", "Mensch", "Magiebegabt" ],
     "Magiebegabt": true,
     "Eigenschaften": {
       "IN": "12+",
@@ -314,6 +722,7 @@
     "Gewicht": "",
     "LE": 30,
     "AE": 20,
+    "KE": 0,
     "MRBonus": 1,
     "Stufenanstieg": {
       "LE_AE": "1W6 + 2",
@@ -325,8 +734,7 @@
     }
   },
   "Auelf": {
-    "Berufmodifikator": true,
-    "Herkunftmodifikator": false,
+    "Typkategorie": [ "Elf", "Magiebegabt" ],
     "Magiebegabt": true,
     "Eigenschaften": {
       "IN": "13+",
@@ -341,6 +749,7 @@
     "Gewicht": "",
     "LE": 25,
     "AE": 25,
+    "KE": 0,
     "MRBonus": 3,
     "Stufenanstieg": {
       "LE_AE": "1W6 + 2",
@@ -352,8 +761,7 @@
     }
   },
   "Firnelf": {
-    "Berufmodifikator": true,
-    "Herkunftmodifikator": false,
+    "Typkategorie": [ "Elf", "Magiebegabt" ],
     "Magiebegabt": true,
     "Eigenschaften": {
       "IN": "13+",
@@ -369,6 +777,7 @@
     "Gewicht": "",
     "LE": 30,
     "AE": 25,
+    "KE": 0,
     "MRBonus": 4,
     "Stufenanstieg": {
       "LE_AE": "1W6 + 2",
@@ -380,8 +789,7 @@
     }
   },
   "Waldelf": {
-    "Berufmodifikator": true,
-    "Herkunftmodifikator": false,
+    "Typkategorie": [ "Elf", "Magiebegabt" ],
     "Magiebegabt": true,
     "Eigenschaften": {
       "IN": "13+",
@@ -398,6 +806,7 @@
     "Gewicht": "",
     "LE": 25,
     "AE": 25,
+    "KE": 0,
     "MRBonus": 3,
     "Stufenanstieg": {
       "LE_AE": "1W6 + 2",
@@ -409,8 +818,7 @@
     }
   },
   "Amazone": {
-    "Berufmodifikator": true,
-    "Herkunftmodifikator": false,
+    "Typkategorie": [ "Mensch" ],
     "Magiebegabt": false,
     "Eigenschaften": {
       "MU": "13+",
@@ -421,11 +829,18 @@
       "TA": "5-"
     },
     "Herkunft": {
+      "Würfel": "1W20",
       "mittelständisch": {
-        "W20": [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17 ,18, 19 ]
+        "1W20": [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17 ,18, 19 ],
+        "Eltern": {
+          "Ordensmitglied": [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17 ,18, 19 ]
+        }
       },
       "reich": {
-        "W20": [ 20 ]
+        "1W20": [ 20 ],
+        "Eltern": {
+          "Burgherrin": [ 20 ]
+        }
       }
     },
     "Haarfarbe": {
@@ -437,10 +852,11 @@
       "albino": [ 20 ]
     },
     "Geschlecht": [ "weiblich" ],
-    "Körpergröße": [ "160", "2W20"],
+    "Körpergröße": [ "160", "21W20"],
     "Gewicht": -105,
     "LE": 35,
     "AE": 0,
+    "KE": 0,
     "MRBonus": 0,
     "Stufenanstieg": {
       "LE_AE": "1W6",
@@ -452,8 +868,7 @@
     }
   },
   "Gaukler": {
-    "Berufmodifikator": true,
-    "Herkunftmodifikator": true,
+    "Typkategorie": [ "Mensch" ],
     "Magiebegabt": false,
     "Eigenschaften": {
       "MU": "11+",
@@ -462,17 +877,27 @@
       "AG": "7+"
     },
     "Herkunft": {
+      "Würfel": "1W20",
       "unbekannt": {
-        "W20": [ 1, 2 ]
+        "1W20": [ 1, 2 ]
       },
       "arm": {
-        "W20": [ 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14 ]
+        "1W20": [ 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14 ],
+        "Eltern": {
+          "Gaukler": [ 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14 ]
+        }
       },
       "mittelständisch": {
-        "W20": [ 15, 16, 17, 18, 19 ]
+        "1W20": [ 15, 16, 17, 18, 19 ],
+        "Eltern": {
+          "Schausteller": [ 15, 16, 17, 18, 19 ]
+        }
       },
       "reich": {
-        "W20": [ 20 ]
+        "1W20": [ 20 ],
+        "Eltern": {
+          "Hofartist": [ 20 ]
+        }
       }
     },
     "Haarfarbe": {
@@ -484,10 +909,11 @@
       "albino": [ 20 ]
     },
     "Geschlecht": [ "männlich", "weiblich", "divers" ],
-    "Körpergröße": [ "145", "2W20" ],
+    "Körpergröße": [ "145", "21W20" ],
     "Gewicht": -110,
     "LE": 30,
     "AE": 0,
+    "KE": 0,
     "MRBonus": 0,
     "Stufenanstieg": {
       "LE_AE": "1W6",
@@ -499,8 +925,7 @@
     }
   },
   "Jäger": {
-    "Berufmodifikator": true,
-    "Herkunftmodifikator": false,
+    "Typkategorie": [ "Mensch" ],
     "Magiebegabt": false,
     "Eigenschaften": {
       "IN": "12+",
@@ -508,14 +933,27 @@
       "RA": "7+"
     },
     "Herkunft": {
+      "Würfel": "1W20",
       "unfrei": {
-        "W20": [ 1, 2 ]
+        "1W20": [ 1, 2 ],
+        "Eltern": {
+          "Leibeigene": [ 1, 2 ]
+        }
       },
       "arm": {
-        "W20": [ 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 ]
+        "1W20": [ 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 ],
+        "Eltern": {
+          "Bauern": [ 3, 4, 5, 6, 7 ],
+          "Wilderer": [8, 9, 10, 11, 12 ]
+        }
       },
       "mittelständisch": {
-        "W20": [ 13, 14, 15, 16, 17, 18, 19, 20 ]
+        "1W20": [ 13, 14, 15, 16, 17, 18, 19, 20 ],
+        "Eltern": {
+          "Bauern": [ 13, 14 ],
+          "Jäger": [ 15, 16, 17, 18 ],
+          "Wildhüter": [ 19, 20 ]
+        }
       }
     },
     "Haarfarbe": {
@@ -528,10 +966,11 @@
       "albino": [ 20 ]
     },
     "Geschlecht": [ "männlich", "weiblich", "divers" ],
-    "Körpergröße": [ "158", "1W20", "2W6" ],
+    "Körpergröße": [ "158", "11W20", "2W6" ],
     "Gewicht": -110,
     "LE": 30,
     "AE": 0,
+    "KE": 0,
     "MRBonus": 0,
     "Stufenanstieg": {
       "LE_AE": "1W6",
@@ -543,8 +982,7 @@
     }
   },
   "Krieger": {
-    "Berufmodifikator": false,
-    "Herkunftmodifikator": true,
+    "Typkategorie": [ "Mensch" ],
     "Magiebegabt": false,
     "Eigenschaften": {
       "MU": "12+",
@@ -553,20 +991,41 @@
       "JZ": "5-"
     },
     "Herkunft": {
+      "Würfel": "1W20",
       "unfrei": {
-        "W20": [ 1 ]
+        "1W20": [ 1 ],
+        "Eltern": {
+          "Leibeigene": [ 1 ]
+        }
       },
       "arm": {
-        "W20": [ 2, 3 ]
+        "1W20": [ 2, 3 ],
+        "Eltern": {
+          "Bauern": [ 2 ],
+          "Söldner": [ 3 ]
+        }
       },
       "mittelständisch": {
-        "W20": [ 4, 5, 6, 7, 8, 9 ]
+        "1W20": [ 4, 5, 6, 7, 8, 9 ],
+        "Eltern": {
+          "Handwerker": [ 4, 5 ],
+          "Gardisten": [ 6, 7 ],
+          "Geweihte": [ 8, 9 ]
+        }
       },
       "niederer Adel": {
-        "W20": [ 10, 11, 12, 13, 14, 15, 16, 17, 18 ]
+        "1W20": [ 10, 11, 12, 13, 14, 15, 16, 17, 18 ],
+        "Eltern": {
+          "Ritter": [ 10, 11, 12, 13, 14 ],
+          "Barone": [ 15, 16, 17, 18 ]
+        }
       },
       "Hochadel": {
-        "W20": [ 19, 20 ]
+        "1W20": [ 19, 20 ],
+        "Eltern": {
+          "Grafen": [ 19 ],
+          "Fürsten": [ 20 ]
+        }
       }
     },
     "Haarfarbe": {
@@ -579,10 +1038,11 @@
       "albino": [ 20 ]
     },
     "Geschlecht": [ "männlich", "weiblich", "divers" ],
-    "Körpergröße": [ "163", "2W20" ],
+    "Körpergröße": [ "163", "21W20" ],
     "Gewicht": -105,
     "LE": 30,
     "AE": 0,
+    "KE": 0,
     "MRBonus": 0,
     "Stufenanstieg": {
       "LE_AE": "1W6",
@@ -594,8 +1054,7 @@
     }
   },
   "Medicus": {
-    "Berufmodifikator": true,
-    "Herkunftmodifikator": true,
+    "Typkategorie": [ "Mensch" ],
     "Magiebegabt": false,
     "Eigenschaften": {
       "KL": "12+",
@@ -604,20 +1063,42 @@
       "TA": "5-"
     },
     "Herkunft": {
+      "Würfel": "1W20",
       "unfrei": {
-        "W20": [ 1, 2 ]
+        "1W20": [ 1, 2 ],
+        "Eltern": {
+          "Leibeigene": [ 1 ],
+          "Sklaven": [ 2 ]
+        }
       },
       "arm": {
-        "W20": [ 3, 4, 5 ]
+        "1W20": [ 3, 4, 5 ],
+        "Eltern": {
+          "Bauern/Fischer": [ 3 ],
+          "Gaukler": [ 4 ],
+          "Streuner/Söldner": [ 5 ]
+        }
       },
       "mittelständisch": {
-        "W20": [ 6, 7, 8, 9, 10, 11, 12, 13, 14, 15 ]
+        "1W20": [ 6, 7, 8, 9, 10, 11, 12, 13, 14, 15 ],
+        "Eltern": {
+          "Handwerker": [ 6, 7, 8, 9 ],
+          "Händler": [ 10, 11, 12, 13 ],
+          "Geweihte": [ 14, 15 ]
+        }
       },
       "reich": {
-        "W20": [ 16, 17, 18, 19 ]
+        "1W20": [ 16, 17, 18, 19 ],
+        "Eltern": {
+          "Magier": [ 16, 17 ],
+          "höfische Leibärzte": [ 18, 19 ]
+        }
       },
       "adelig": {
-        "W20": [ 20 ]
+        "1W20": [ 20 ],
+        "Eltern": {
+          "verarmter Landadel": [ 20 ]
+        }
       }
     },
     "Haarfarbe": {
@@ -632,6 +1113,7 @@
     "Gewicht": -100,
     "LE": 30,
     "AE": 0,
+    "KE": 0,
     "MRBonus": 0,
     "Stufenanstieg": {
       "LE_AE": "1W6",
@@ -643,8 +1125,7 @@
     }
   },
   "Moha": {
-    "Berufmodifikator": true,
-    "Herkunftmodifikator": false,
+    "Typkategorie": [ "Mensch" ],
     "Magiebegabt": false,
     "Eigenschaften": {
       "CH": "12+",
@@ -653,14 +1134,24 @@
       "NG": "7+"
     },
     "Herkunft": {
-      "Sklave": {
-        "W20": [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 ]
+      "Würfel": "1W20",
+      "unfrei": {
+        "1W20": [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 ],
+        "Eltern": {
+          "Sklaven": [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 ]
+        }
       },
-      "freie Krieger": {
-        "W20": [ 13, 14, 15, 16, 17, 18, 19 ]
+      "mittelständisch": {
+        "1W20": [ 13, 14, 15, 16, 17, 18, 19 ],
+        "Eltern": {
+          "freie Krieger": [ 13, 14, 15, 16, 17, 18, 19 ]
+        }
       },
-      "Häuptling": {
-        "W20": [ 20 ]
+      "reich": {
+        "1W20": [ 20 ],
+        "Eltern": {
+          "Häuptling": [ 20 ]
+        }
       }
     },
     "Haarfarbe": {
@@ -673,6 +1164,7 @@
     "Gewicht": -110,
     "LE": 30,
     "AE": 0,
+    "KE": 0,
     "MRBonus": -3,
     "Stufenanstieg": {
       "LE_AE": "1W6",
@@ -684,8 +1176,7 @@
     }
   },
   "Nivese": {
-    "Berufmodifikator": true,
-    "Herkunftmodifikator": false,
+    "Typkategorie": [ "Mensch" ],
     "Magiebegabt": false,
     "Eigenschaften": {
       "CH": "12+",
@@ -695,20 +1186,42 @@
       "JZ": "5+"
     },
     "Herkunft": {
+      "Würfel": "1W20",
       "unfrei": {
-        "W20": [ 1, 2 ]
+        "1W20": [ 1, 2 ],
+        "Eltern": {
+          "Sklaven": [ 1, 2 ]
+        }
       },
       "arm": {
-        "W20": [ 3, 4, 5, 6, 7, 8, 9, 10 ]
+        "1W20": [ 3, 4, 5, 6, 7, 8, 9, 10 ],
+        "Eltern": {
+          "Viehhirten": [ 3, 4, 5, 6 ],
+          "Nomaden": [ 7, 8, 9, 10 ]
+        }
       },
       "mittelständisch": {
-        "W20": [ 11, 12, 13, 14, 15, 16 ]
+        "1W20": [ 11, 12, 13, 14, 15, 16 ],
+        "Eltern": {
+          "Händler": [ 11, 12 ],
+          "Viehzüchter": [ 13 ],
+          "Karawansereibesitzer": [ 14 ],
+          "Handwerker": [ 15 ],
+          "Hairan": [ 16 ]
+        }
       },
       "reich": {
-        "W20": [ 17, 18, 19 ]
+        "1W20": [ 17, 18, 19 ],
+        "Eltern": {
+          "Kaufmann": [ 17, 18 ],
+          "Scheich": [ 19 ]
+        }
       },
       "adelig": {
-        "W20": [ 20 ]
+        "1W20": [ 20 ],
+        "Eltern": {
+          "Sultan": [ 20 ]
+        }
       }
     },
     "Haarfarbe": {
@@ -718,10 +1231,11 @@
       "blond": [ 20 ]
     },
     "Geschlecht": [ "männlich", "weiblich", "divers" ],
-    "Körpergröße": [ "156", "2W20" ],
+    "Körpergröße": [ "156", "21W20" ],
     "Gewicht": -110,
     "LE": 30,
     "AE": 0,
+    "KE": 0,
     "MRBonus": 0,
     "Stufenanstieg": {
       "LE_AE": "1W6",
@@ -733,8 +1247,7 @@
     }
   },
   "Seefahrer": {
-    "Berufmodifikator": true,
-    "Herkunftmodifikator": true,
+    "Typkategorie": [ "Mensch" ],
     "Magiebegabt": false,
     "Eigenschaften": {
       "GE": "11+",
@@ -742,22 +1255,23 @@
       "AG": "6+"
     },
     "Herkunft": {
+      "Würfel": "1W20",
       "unfrei": {
-        "W20": [ 1, 2, 3 ],
+        "1W20": [ 1, 2, 3 ],
         "Eltern": {
           "Leibeigene": [ 1 ],
           "Rudersklaven": [ 2, 3 ]
         }
       },
       "arm": {
-        "W20": [ 4, 5, 6, 7, 8, 9, 10, 11, 12 ],
+        "1W20": [ 4, 5, 6, 7, 8, 9, 10, 11, 12 ],
         "Eltern": {
           "Fischer": [ 4, 5, 6, 7 ],
           "Einfache Matrosen": [ 8, 9, 10, 11, 12 ]
         }
       },
       "mittelständisch": {
-        "W20": [ 13, 14, 15, 16, 17 ],
+        "1W20": [ 13, 14, 15, 16, 17 ],
         "Eltern": {
           "Segelmacher": [ 13 ],
           "Zimmermann": [ 14 ],
@@ -766,14 +1280,14 @@
         }
       },
       "reich": {
-        "W20": [ 18, 19 ],
+        "1W20": [ 18, 19 ],
         "Eltern": {
           "Navigator": [ 18 ],
           "Kapitän": [ 19 ]
         }
       },
       "adelig": {
-        "W20": [ 20 ],
+        "1W20": [ 20 ],
         "Eltern": {
           "Admiral": [ 20 ]
         }
@@ -788,10 +1302,11 @@
       "weißblond": [ 20 ]
     },
     "Geschlecht": [ "männlich", "weiblich", "divers" ],
-    "Körpergröße": [ "155", "2W20" ],
+    "Körpergröße": [ "155", "21W20" ],
     "Gewicht": -100,
     "LE": 30,
     "AE": 0,
+    "KE": 0,
     "MRBonus": -1,
     "Stufenanstieg": {
       "LE_AE": "1W6",
@@ -803,8 +1318,7 @@
     }
   },
   "Söldner": {
-    "Berufmodifikator": true,
-    "Herkunftmodifikator": true,
+    "Typkategorie": [ "Mensch" ],
     "Magiebegabt": false,
     "Eigenschaften": {
       "MU": "12+",
@@ -814,17 +1328,37 @@
       "JZ": "6+"
     },
     "Herkunft": {
+      "Würfel": "1W20",
       "unfrei": {
-        "W20": [ 1, 2, 3 ]
+        "1W20": [ 1, 2, 3 ],
+        "Eltern": {
+          "Sklaven": [ 1, 2 ],
+          "Kriegsgefangene": [ 3 ]
+        }
       },
       "arm": {
-        "W20": [ 4, 5, 6, 7, 8, 9, 10, 11, 12, 13 ]
+        "1W20": [ 4, 5, 6, 7, 8, 9, 10, 11, 12, 13 ],
+        "Eltern": {
+          "Bauern": [ 4, 5 ],
+          "Fischer": [ 6, 7 ],
+          "Tagelöhner": [ 8, 9 ],
+          "Söldner": [ 10, 11 ],
+          "Streuner": [ 12, 13 ]
+        }
       },
       "mittelständisch": {
-        "W20": [ 13, 14, 15, 16, 17, 18, 19 ]
+        "1W20": [ 13, 14, 15, 16, 17, 18, 19 ],
+        "Eltern": {
+          "Krieger": [ 13, 14, 15 ],
+          "Handwerker": [ 16, 17 ],
+          "Geweihte": [ 18, 19 ]
+        }
       },
       "reich": {
-        "W20": [ 20 ]
+        "1W20": [ 20 ],
+        "Eltern": {
+         "Händler/Offiziere": [ 20 ]
+        }
       }
     },
     "Haarfarbe": {
@@ -835,10 +1369,11 @@
       "grau": [ 19, 20 ]
     },
     "Geschlecht": [ "männlich", "weiblich", "divers" ],
-    "Körpergröße": [ "160", "2W20" ],
+    "Körpergröße": [ "160", "21W20" ],
     "Gewicht": -100,
     "LE": 30,
     "AE": 0,
+    "KE": 0,
     "MRBonus": 1,
     "Stufenanstieg": {
       "LE_AE": "1W6",
@@ -850,8 +1385,7 @@
     }
   },
   "Streuner": {
-    "Berufmodifikator": true,
-    "Herkunftmodifikator": true,
+    "Typkategorie": [ "Mensch" ],
     "Magiebegabt": false,
     "Eigenschaften": {
       "MU": "13+",
@@ -860,20 +1394,38 @@
       "GG": "7+"
     },
     "Herkunft": {
+      "Würfel": "1W20",
       "unbekannt": {
-        "W20": [ 1, 2, 3, 4, 5, 6, 7, 8 ]
+        "1W20": [ 1, 2, 3, 4, 5, 6, 7, 8 ]
       },
       "unfrei": {
-        "W20": [ 9, 10 ]
+        "1W20": [ 9, 10 ],
+        "Eltern": {
+          "Sklaven": [ 9 ],
+          "Leibeigene": [ 10 ]
+        }
       },
       "arm": {
-        "W20": [ 11, 12, 13, 14, 15, 16, 17 ]
+        "1W20": [ 11, 12, 13, 14, 15, 16, 17 ],
+        "Eltern": {
+          "Bettler": [ 11, 12 ],
+          "Streuner": [ 13, 14 ],
+          "Tagelöhner": [ 15, 16 ],
+          "Gaukler": [ 17 ]
+        }
       },
       "mittelständisch": {
-        "W20": [ 18, 19 ]
+        "1W20": [ 18, 19 ],
+        "Eltern": {
+          "Gaukler": [ 18 ],
+          "Streuner/Spieler": [ 19 ]
+        }
       },
       "reich": {
-        "W20": [ 20 ]
+        "1W20": [ 20 ],
+        "Eltern": {
+          "Spieler": [ 20 ]
+        }
       }
     },
     "Haarfarbe": {
@@ -884,10 +1436,11 @@
       "albino": [ 20 ]
     },
     "Geschlecht": [ "männlich", "weiblich", "divers" ],
-    "Körpergröße": [ "154", "2W20" ],
+    "Körpergröße": [ "154", "21W20" ],
     "Gewicht": -110,
     "LE": 30,
     "AE": 0,
+    "KE": 0,
     "MRBonus": 2,
     "Stufenanstieg": {
       "LE_AE": "1W6",
@@ -899,8 +1452,7 @@
     }
   },
   "Thorwaler": {
-    "Berufmodifikator": true,
-    "Herkunftmodifikator": false,
+    "Typkategorie": [ "Mensch" ],
     "Magiebegabt": false,
     "Eigenschaften": {
       "MU": "11+",
@@ -910,17 +1462,38 @@
       "RA": "4+"
     },
     "Herkunft": {
+      "Würfel": "1W20",
       "arm": {
-        "W20": [ 1, 2, 3, 4, 5, 6, 7, 8, 9 ]
+        "1W20": [ 1, 2, 3, 4, 5, 6, 7, 8, 9 ],
+        "Eltern": {
+          "Fischer": [ 1, 2, 3 ],
+          "Landarbeiter": [ 4, 5 ],
+          "Hafenarbeiter": [ 6, 7 ],
+          "Bauern": [ 8, 9 ]
+        }
       },
       "mittleständisch": {
-        "W20": [ 10, 11, 12, 13, 14 ]
+        "1W20": [ 10, 11, 12, 13, 14 ],
+        "Eltern": {
+          "Fischer": [ 10 ], 
+          "Bauern": [ 11 ],
+          "Handwerker": [ 12 ],
+          "Geweihte/Skalden": [ 13 ],
+          "Seefahrer": [ 14 ]
+        }
       },
       "reich": {
-        "W20": [ 15, 16, 17, 18, 19 ]
+        "1W20": [ 15, 16, 17, 18, 19 ],
+        "Eltern": {
+          "Kauffahrerkapitäne": [ 15, 16, 17 ],
+          "Piratenkapitäne": [ 18, 19 ]
+        }
       },
       "adelig": {
-        "W20": [ 20 ]
+        "1W20": [ 20 ],
+        "Eltern": {
+          "Hetleute": [ 20 ]
+        }
       }
     },
     "Haarfarbe": {
@@ -932,10 +1505,11 @@
       "schwarz": [ 20 ]
     },
     "Geschlecht": [ "männlich", "weiblich", "divers" ],
-    "Körpergröße": [ "168", "2W20" ],
+    "Körpergröße": [ "168", "21W20" ],
     "Gewicht": -100,
     "LE": 30,
     "AE": 0,
+    "KE": 0,
     "MRBonus": -1,
     "Stufenanstieg": {
       "LE_AE": "1W6",
@@ -947,8 +1521,7 @@
     }
   },
   "Skalde": {
-    "Berufmodifikator": true,
-    "Herkunftmodifikator": false,
+    "Typkategorie": [ "Mensch" ],
     "Magiebegabt": false,
     "Eigenschaften": {
       "MU": "11+",
@@ -959,17 +1532,38 @@
       "AG": "6+"
     },
     "Herkunft": {
+      "Würfel": "1W20",
       "arm": {
-        "W20": [ 1, 2, 3, 4, 5, 6, 7, 8, 9 ]
+        "1W20": [ 1, 2, 3, 4, 5, 6, 7, 8, 9 ],
+        "Eltern": {
+          "Fischer": [ 1, 2 ],
+          "Landarbeiter": [ 3, 4 ],
+          "Hafenarbeiter": [ 5, 6 ],
+          "Bauern": [ 7, 8, 9 ]
+        }
       },
       "mittleständisch": {
-        "W20": [ 10, 11, 12, 13, 14 ]
+        "1W20": [ 10, 11, 12, 13, 14 ],
+        "Eltern": {
+          "Fischer": [ 10 ],
+          "Bauern": [ 11 ],
+          "Handwerker": [ 12 ],
+          "Geweihte/Skalden": [ 13 ],
+          "Seefahrer": [ 14 ]
+        }
       },
       "reich": {
-        "W20": [ 15, 16, 17, 18, 19 ]
+        "1W20": [ 15, 16, 17, 18, 19 ],
+        "Eltern": {
+          "Kauffahrerkapitäne": [ 15, 16, 17 ],
+          "Piratenkapitäne": [ 18, 19 ]
+        }
       },
       "adelig": {
-        "W20": [ 20 ]
+        "1W20": [ 20 ],
+        "Eltern": {
+          "Hetleute": [ 20 ]
+        }
       }
     },
     "Haarfarbe": {
@@ -985,6 +1579,78 @@
     "Gewicht": -100,
     "LE": 30,
     "AE": 0,
+    "KE": 0,
+    "MRBonus": 0,
+    "Stufenanstieg": {
+      "LE_AE": "1W6",
+      "MaxAE": 0,
+      "TS": 30,
+      "ZS": 0,
+      "Egal": 0,
+      "ZS_zu_AE": { }
+    }
+  },
+  "Barde": {
+    "Typkategorie": [ "Mensch" ],
+    "Magiebegabt": false,
+    "Eigenschaften": {
+      "IN": "12+",
+      "CH": "12+",
+      "FF": "11+",
+      "NG": "6+"
+    },
+    "Herkunft": {
+      "Würfel": "1W20",
+      "unfrei": {
+        "1W20": [ 1, 2 ],
+        "Eltern": {
+          "Leibeigene": [ 1, 2 ]
+        }
+      },
+      "arm": {
+        "1W20": [ 3, 4, 5, 6, 7, 8, 9, 10 ],
+        "Eltern": {
+          "Bauern": [ 3, 4 ],
+          "Landarbeiter": [ 5 ],
+          "Gaukler": [ 6 ],
+          "Streuner": [ 7, 8 ],
+          "Spielleute": [ 9, 10 ]
+        }
+      },
+      "mittleständisch": {
+        "1W20": [ 11, 12, 13, 14 ],
+        "Eltern": {
+          "Händler": [ 11 ],
+          "Handwerker": [ 12 ],
+          "Fahrende Sänger": [ 13, 14 ]
+        }
+      },
+      "reich": {
+        "1W20": [ 15, 16, 17, 18, 19 ],
+        "Eltern": {
+          "Hofsänger": [ 15, 16, 17, 18, 19 ]
+        }
+      },
+      "adelig": {
+        "1W20": [ 20 ],
+        "Eltern": {
+          "Edle/Ritter": [ 20 ]
+        }
+      }
+    },
+    "Haarfarbe": {
+      "schwarz": [ 1, 2, 3, 4, 5 ],
+      "braun": [ 6, 7, 8, 9, 10, 11 ],
+      "rot": [ 12, 13 ],
+      "blond": [ 14, 15, 16, 17, 18 ],
+      "hellblond": [ 19, 20 ]
+    },
+    "Geschlecht": [ "männlich", "weiblich", "divers" ],
+    "Körpergröße": [ "160", "5W6" ],
+    "Gewicht": -100,
+    "LE": 30,
+    "AE": 0,
+    "KE": 0,
     "MRBonus": 0,
     "Stufenanstieg": {
       "LE_AE": "1W6",

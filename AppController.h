@@ -12,9 +12,12 @@
 #define _PCAPPPROJ_APPCONTROLLER_H
 
 #import <AppKit/AppKit.h>
+#import "NSFlippedView.h"
 
 @class Utils;
 @class Charakter;
+
+
 
 @interface AppController : NSObject
 {
@@ -42,6 +45,7 @@
   
   /* Carakter definieren */
   IBOutlet NSWindow      *windowCharDef;
+  IBOutlet NSPopUpButton *popupWinCharDefKategorie;
   IBOutlet NSPopUpButton *popupWinCharDefTypus;
   IBOutlet NSPopUpButton *popupWinCharDefHerkunft;
   IBOutlet NSPopUpButton *popupWinCharDefBeruf;
@@ -119,7 +123,16 @@
   IBOutlet NSTextField   *fieldTalenteCH;
   IBOutlet NSTextField   *fieldTalenteFF;
   IBOutlet NSTextField   *fieldTalenteGE;
-  IBOutlet NSTextField   *fieldTalenteKK;            
+  IBOutlet NSTextField   *fieldTalenteKK;
+  IBOutlet NSTextField   *fieldVerbleibendeSteigerungsversuche;
+  IBOutlet NSTabView     *talenteWinMainTabview;
+  IBOutlet NSTabView     *talenteWinSubTabview;       
+  IBOutlet NSFlippedView *flippedView;  
+  
+  
+  // talenteView
+  IBOutlet NSFlippedView *talenteView;
+  IBOutlet NSTabView     *talenteViewTabView;
   
 }
 
@@ -142,6 +155,7 @@
 - (IBAction) showTalenteWindow: (id)sender;
 - (IBAction) showCharLoadWindow: (id)sender;
 
+- (IBAction) popupCharDefKategorieSelected: (id)sender;
 - (IBAction) popupCharDefTypusSelected: (id)sender;
 - (IBAction) popupCharDefHerkunftSelected: (id)sender;
 - (IBAction) popupCharDefBerufSelected: (id)sender;
